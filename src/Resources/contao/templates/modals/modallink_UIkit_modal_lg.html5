@@ -1,0 +1,1 @@
+<a href="<?= $this->href; ?>" title="<?= $this->linkTitle; ?>"  <?= $this->linkAttributes; ?> class="modal-toggle"><?= $this->link; ?></a>

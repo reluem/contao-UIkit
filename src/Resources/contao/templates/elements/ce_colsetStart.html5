@@ -1,0 +1,11 @@
+<!-- Spaltenset Start //-->
+<section
+        class="<?php echo $this->class; ?> <?= $this->UIkit_background; ?>"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+    <div <?php echo ($this->UIkit_container) ? 'class="' . $this->UIkit_container . '"' : ''; ?>">
+    <div <?php echo ($this->scclass) ? 'class="' . $this->scclass . '"' : ''; ?>" uk-grid>
+    <!-- first Column //-->
+    <div class="<?php echo $this->column; ?>">
+        <?php if ($this->useInside): ?>
+        <div class="<?php echo $this->inside; ?>">
+            <?php endif ?>
+			

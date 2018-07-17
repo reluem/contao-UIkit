@@ -1,0 +1,12 @@
+
+<!-- indexer::stop -->
+<div class="uk-navbar-container uk-navbar <?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?> uk-navbar>
+
+  <div class="uk-navbar-left">
+        <a href="{{env::url}}" class="uk-navbar-item uk-logo"><span class="uk-visible@s">{{picture::b52d7df7-a77c-11e6-bc04-5699cbb484ac?size=8}}</span><span class="uk-hidden@s">{{picture::5e51c82a-0ffd-11e4-a1f5-90b11c41b0e5?size=8}} {{page::rootTitle}}</span></a>
+</div>
+  <?= $this->items ?>
+
+
+</div>
+<!-- indexer::continue -->

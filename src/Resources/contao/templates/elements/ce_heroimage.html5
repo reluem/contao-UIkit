@@ -1,0 +1,25 @@
+<div class="uk-cover-container uk-overflow-hidden <?= $this->heroContentBoxBackground; ?> <?= $this->heroContentBoxColor; ?> <?= $this->class ?>" <?= $this->cssID ?>
+     uk-height-viewport="<?= $this->heroContentBoxHeight; ?>">
+
+    <img src="<?= $this->backgroundImage ?>" class="uk-blend-soft-light" data-uk-cover=""/>
+    <div class="uk-position-center container">
+        <?php if ($this->text || $this->headline): ?>
+        <div class="<?= $this->heroContentBoxContainer; ?>">
+            <<?= $this->hl ?> class="uk-heading-hero"><?= $this->headline ?></<?= $this->hl ?>>
+        <?php if ($this->text): ?>
+            <div class="uk-text-lead">
+                <?= $this->text ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if ($this->heroImageButtonText): ?>
+            <a href="<?= $this->heroImageButtonJumpTo ?>" target="_blank" role="button" tabindex="0" aria-pressed="false"
+               class="uk-button <?= $this->heroImageButtonClass ?>">
+                <?= $this->heroImageButtonText ?>
+            </a>
+        <?php endif; ?>
+    </div>
+</div>
+    <?php endif; ?>
+
+</div>
