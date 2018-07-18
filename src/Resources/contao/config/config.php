@@ -1,6 +1,5 @@
 <?php
     
-    $GLOBALS['TL_CTE']['media']['heroimage'] = 'reluem\ContentHeroimage';
     $GLOBALS['FE_MOD']['navigationMenu']['navigation'] = 'reluem\ModuleNavbar';
     
     
