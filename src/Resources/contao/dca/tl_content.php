@@ -30,7 +30,7 @@
                         \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
                     ->applyToPalette($key, 'tl_content');
             }
-        
+            
         }
     };
     
@@ -71,7 +71,7 @@
     \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
         ->addLegend('icon_legend', 'image_legend',
             \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
-        ->addField(array('fontAwesome_icon', 'fontAwesome_iconSize'), 'icon_legend',
+        ->addField(array('fontAwesome_icon'), 'icon_legend',
             \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
         ->applyToPalette('linkteaser', 'tl_content');
     
