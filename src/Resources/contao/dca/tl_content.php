@@ -57,6 +57,9 @@
         'options' => array(
             'uk-container',
             'uk-container uk-container-expand',
+            'uk-container uk-container-xsmall',
+            'uk-container uk-container-small',
+            'uk-container uk-container-large'
         ),
         'eval' => array('tl_class' => 'w50 wizard', 'includeBlankOption' => true),
         'sql' => "varchar(64) NOT NULL default ''",
