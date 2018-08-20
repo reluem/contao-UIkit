@@ -20,6 +20,7 @@
                     ->setLoadAfter([
                         ContaoCoreBundle::class,
                         'HeimrichHannot\ContaoTeaserBundle',
+                        'Subcolumns'
                     ]),
             ];
         }
