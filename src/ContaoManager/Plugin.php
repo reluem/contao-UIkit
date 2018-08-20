@@ -19,7 +19,7 @@
                 BundleConfig::create(ContaoUIkitBundle::class)
                     ->setLoadAfter([
                         ContaoCoreBundle::class,
-                        'teaser',
+                        'HeimrichHannot\ContaoTeaserBundle',
                     ]),
             ];
         }
