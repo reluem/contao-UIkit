@@ -22,15 +22,28 @@
     
     $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = function () {
         foreach ($GLOBALS['TL_DCA']['tl_content']['palettes'] as $key => $palette) {
-            if (\is_string($palette) && strpos($key, "sc_") !== true) {
+            
+            // if valid palette string
+            if (\is_string($palette)) {
+                
+                //  add uk-background classes to DCA
                 \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-                    ->addLegend('UIkit_legend', 'template_legend',
+                    ->addLegend('UIkit_legend', array('template_legend', 'protected_legend'),
                         \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_BEFORE)
-                    ->addField(array('UIkit_background', 'UIkit_container'), 'UIkit_legend',
+                    ->addField('UIkit_background', 'UIkit_legend',
                         \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
                     ->applyToPalette($key, 'tl_content');
+                
+                //  if palette contains sc_type (Subcolumns), add uk-container classes to DCA & remove default color field
+                if ($key === 'colsetStart') {
+                    \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
+                        ->addField('UIkit_container', 'UIkit_legend',
+                            \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+                        ->applyToPalette($key, 'tl_content');
+                    \ContaoCommunityAlliance\MetaPalettes\MetaPalettes::removeFields('tl_content', 'colsetStart', array('sc_color'));
+                    
+                }
             }
-            
         }
     };
     
