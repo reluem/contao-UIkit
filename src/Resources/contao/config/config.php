@@ -4,35 +4,6 @@
     
     
     /**
-     * Modal types
-     */
-    
-    
-    $GLOBALS['TL_MODALS']['UIkit_modal'] =
-        [
-            'header' => true,
-            'footer' => true,
-            'template' => 'modal_UIkit_modal',
-            'link' => [
-                'attributes' => [
-                    'data-modal' => "#uk-modal",
-                ],
-            ],
-            'js' =>
-                [
-                    'web/bundles/contaouikit/js/js.UIkit_modal.js',
-                ],
-        ];
-    
-    $GLOBALS['TL_MODALS']['UIkit_modal_lg'] = array_merge(
-        $GLOBALS['TL_MODALS']['UIkit_modal'],
-        [
-            'template' => 'modal_UIkit_modal_lg',
-        ]
-    );
-    
-    
-    /**
      * Grid definition
      */
     $GLOBALS['TL_SUBCL']['contao-UIkit'] = [
