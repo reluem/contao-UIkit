@@ -78,17 +78,4 @@
         'sql' => "varchar(64) NOT NULL default ''",
     );
     
-    /**
-     *
-     * UIKit IconPicker Integration
-     *
-     **/
-    
-    \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-        ->addLegend('icon_legend', 'image_legend',
-            \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
-        ->addField(array('fontAwesome_icon'), 'icon_legend',
-            \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-        ->applyToPalette('linkteaser', 'tl_content');
-    
    
