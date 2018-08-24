@@ -51,6 +51,7 @@
     (
         'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_background'],
         'inputType' => 'select',
+        'default' => 'default',
         'options' => array(
             'transparent',
             'default',
@@ -67,6 +68,7 @@
     (
         'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_container'],
         'inputType' => 'select',
+        'default' => 'uk-container uk-container-large',
         'options' => array(
             'uk-container',
             'uk-container uk-container-expand',
