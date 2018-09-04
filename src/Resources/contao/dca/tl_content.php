@@ -40,7 +40,8 @@
                         ->addField('UIkit_container', 'UIkit_legend',
                             \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
                         ->applyToPalette($key, 'tl_content');
-                    \ContaoCommunityAlliance\MetaPalettes\MetaPalettes::removeFields('tl_content', 'colsetStart', array('sc_color'));
+                    \ContaoCommunityAlliance\MetaPalettes\MetaPalettes::removeFields('tl_content', 'colsetStart',
+                        array('sc_color'));
                     
                 }
             }
@@ -53,7 +54,6 @@
         'inputType' => 'select',
         'default' => 'default',
         'options' => array(
-            'transparent',
             'default',
             'muted',
             'primary',
@@ -71,10 +71,22 @@
         'default' => 'uk-container uk-container-large',
         'options' => array(
             'uk-container',
+            'uk-container uk-container-large',
             'uk-container uk-container-expand',
-            'uk-container uk-container-xsmall',
-            'uk-container uk-container-small',
-            'uk-container uk-container-large'
+        ),
+        'eval' => array('tl_class' => 'w50 wizard'),
+        'sql' => "varchar(64) NOT NULL default ''",
+    );
+    
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_container'] = array
+    (
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_container'],
+        'inputType' => 'select',
+        'default' => 'uk-container uk-container-large',
+        'options' => array(
+            'uk-container',
+            'uk-container uk-container-large',
+            'uk-container uk-container-expand',
         ),
         'eval' => array('tl_class' => 'w50 wizard', 'includeBlankOption' => true),
         'sql' => "varchar(64) NOT NULL default ''",

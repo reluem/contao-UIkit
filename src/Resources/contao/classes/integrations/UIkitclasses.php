@@ -18,8 +18,6 @@
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    
-    
     class extendCssClassesHooks extends \Controller
     {
         /**
@@ -29,10 +27,15 @@
         {
             
             if (isset($objTemplate->UIkit_background) && $objTemplate->UIkit_background != '') {
+                
+                // add section with background for columnset
                 if ($objTemplate->sc_type > 0) {
                     $objTemplate->UIkit_background = "uk-section uk-section-" . $objTemplate->UIkit_background;
                     
-                } else {
+                }
+                
+                // add background to content elements
+                else {
                     $objTemplate->class = "uk-tile uk-tile-" . $objTemplate->UIkit_background . ' uk-padding-small ' . $objTemplate->class;
                 }
             };
