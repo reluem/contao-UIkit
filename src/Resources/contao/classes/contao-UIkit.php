@@ -10,6 +10,6 @@
         
         public function addScripts()
         {
-            $GLOBALS['TL_BODY'][] = '<script type="text/javascript" src="/files/theme/UIkit/dist/js/uikit.min.js" defer async />';
+            $GLOBALS['TL_JAVASCRIPT'][] = 'files/theme/UIkit/dist/js/uikit.min.js|static';
         }
     }
