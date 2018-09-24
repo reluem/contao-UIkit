@@ -45,7 +45,7 @@
             };
             
             // columns valign
-            if (isset($objTemplate->UIkit_valign)) {
+            if (isset($objTemplate->UIkit_valign) && $objTemplate->UIkit_valign === 1) {
                 $objTemplate->scclass .= " uk-flex uk-flex-middle";
                 
             }
