@@ -37,7 +37,8 @@
                 //  if palette contains sc_type (Subcolumns), add uk-container classes to DCA & remove default color field
                 if ($key === 'colsetStart') {
                     \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-                        ->addField('UIkit_container', 'UIkit_legend',
+                        ->addField(array('UIkit_container','UIkit_viewportHeight', 'UIkit_section', 'UIkit_valign'),
+                            'UIkit_legend',
                             \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
                         ->applyToPalette($key, 'tl_content');
                     \ContaoCommunityAlliance\MetaPalettes\MetaPalettes::removeFields('tl_content', 'colsetStart',
@@ -92,4 +93,22 @@
         'sql' => "varchar(64) NOT NULL default ''",
     );
     
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_section'] = array
+    (
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_section'],
+        'default' => 0,
+        'exclude' => true,
+        'inputType' => 'checkbox',
+        'eval' => array('tl_class' => 'w50'),
+        'sql' => "char(1) NOT NULL default ''",
+    );
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_valign'] = array
+    (
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_section'],
+        'default' => 0,
+        'exclude' => true,
+        'inputType' => 'checkbox',
+        'eval' => array('tl_class' => 'w50'),
+        'sql' => "char(1) NOT NULL default ''",
+    );
    
