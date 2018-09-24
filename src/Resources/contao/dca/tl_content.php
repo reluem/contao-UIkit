@@ -37,7 +37,7 @@
                 //  if palette contains sc_type (Subcolumns), add uk-container classes to DCA & remove default color field
                 if ($key === 'colsetStart') {
                     \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-                        ->addField(array('UIkit_container','UIkit_viewportHeight', 'UIkit_section', 'UIkit_valign'),
+                        ->addField(array('UIkit_container', 'UIkit_section', 'UIkit_valign'),
                             'UIkit_legend',
                             \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
                         ->applyToPalette($key, 'tl_content');
@@ -60,7 +60,7 @@
             'primary',
             'secondary',
         ),
-        'eval' => array('tl_class' => 'w50 wizard clr', 'includeBlankOption' => true),
+        'eval' => array('tl_class' => 'w50 wizard', 'includeBlankOption' => true),
         'sql' => "varchar(64) NOT NULL default ''",
     );
     
@@ -79,36 +79,29 @@
         'sql' => "varchar(64) NOT NULL default ''",
     );
     
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_container'] = array
+    
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_section'] = array
     (
-        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_container'],
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_section'],
         'inputType' => 'select',
-        'default' => 'uk-container uk-container-large',
+        'default' => 'uk-section',
         'options' => array(
-            'uk-container',
-            'uk-container uk-container-large',
-            'uk-container uk-container-expand',
+            'uk-section',
+            'uk-section uk-section-small',
+            'uk-section uk-section-large',
+            'uk-section uk-section-xlarge',
         ),
         'eval' => array('tl_class' => 'w50 wizard', 'includeBlankOption' => true),
         'sql' => "varchar(64) NOT NULL default ''",
     );
     
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_section'] = array
-    (
-        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_section'],
-        'default' => 0,
-        'exclude' => true,
-        'inputType' => 'checkbox',
-        'eval' => array('tl_class' => 'w50'),
-        'sql' => "char(1) NOT NULL default ''",
-    );
     $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_valign'] = array
     (
-        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_section'],
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_valign'],
         'default' => 0,
         'exclude' => true,
         'inputType' => 'checkbox',
-        'eval' => array('tl_class' => 'w50'),
+        'eval' => array('tl_class' => 'w50 m12'),
         'sql' => "char(1) NOT NULL default ''",
     );
    

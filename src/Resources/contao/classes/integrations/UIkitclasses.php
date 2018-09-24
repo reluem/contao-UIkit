@@ -25,19 +25,30 @@
          */
         public function extendCssClasses($objTemplate)
         {
+            // columnset section padding (size)
+            if (isset($objTemplate->UIkit_section) && ($objTemplate->UIkit_section != '')) {
+                $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
+            }
             
+            
+            // columnset background
             if (isset($objTemplate->UIkit_background) && $objTemplate->UIkit_background != '') {
                 
                 // add section with background for columnset
                 if ($objTemplate->sc_type > 0) {
-                    $objTemplate->UIkit_background = "uk-section uk-background-" . $objTemplate->UIkit_background;
+                    $objTemplate->class .= ' uk-background-' . $objTemplate->UIkit_background;
                     
                 } // add background to content elements
                 else {
-                    $objTemplate->class = $objTemplate->class . ' uk-tile uk-tile-' . $objTemplate->UIkit_background . ' uk-padding-small';
+                    $objTemplate->class .= ' uk-tile uk-tile-' . $objTemplate->UIkit_background . ' uk-padding-small';
                 }
             };
             
+            // columns valign
+            if (isset($objTemplate->UIkit_valign)) {
+                $objTemplate->scclass .= " uk-flex uk-flex-middle";
+                
+            }
         }
 
 //        /**
@@ -50,6 +61,6 @@
 //                return $objWidget;
 //            }
 //        }
-        
+    
     }
     
