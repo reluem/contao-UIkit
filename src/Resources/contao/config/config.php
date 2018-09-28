@@ -43,7 +43,6 @@
      * Hooks
      */
     
-    $GLOBALS['TL_HOOKS']['generatePage'][] = ['reluem\contaoUIkit', 'addScripts'];
     $GLOBALS['TL_HOOKS']['parseTemplate'][] = array('reluem\extendCssClassesHooks', 'extendCssClasses');
     //$GLOBALS['TL_HOOKS']['tabControlJS'][] = '/files/theme/UIkit/src/js/core/modal.js';
 
