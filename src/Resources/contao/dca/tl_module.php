@@ -1,9 +1,6 @@
 <?php
     
     
-    // \ContaoCommunityAlliance\MetaPalettes\MetaPalettes::appendFields('tl_module', 'navigation', 'template',
-    //     array('UIkit_navbarModules'));
-    
     
     \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
         ->addField('UIkit_navbarModules', 'nav_legend',
