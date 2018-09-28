@@ -19,7 +19,6 @@
                 BundleConfig::create(ContaoUIkitBundle::class)
                     ->setLoadAfter([
                         ContaoCoreBundle::class,
-                        'HeimrichHannot\ContaoTeaserBundle',
                         'Subcolumns'
                     ]),
             ];
