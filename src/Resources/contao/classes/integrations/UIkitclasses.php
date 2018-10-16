@@ -25,13 +25,16 @@
          */
         public function extendCssClasses($objTemplate)
         {
+            
             // columnset section padding (size)
-            if (isset($objTemplate->UIkit_section) && ($objTemplate->UIkit_section != '')) {
-                $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
+            if ($objTemplate->sc_type > 0) {
+                if (isset($objTemplate->UIkit_section) && ($objTemplate->UIkit_section != '')) {
+                    $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
+                }
             }
             
             
-            // columnset background
+            // background
             if (isset($objTemplate->UIkit_background) && $objTemplate->UIkit_background != '') {
                 
                 // add section with background for columnset
