@@ -1,0 +1,33 @@
+<div class="uk-grid uk-grid-collapse uk-child-width-1-2 uk-child-width-1-<?php echo $this->perRow ?>@m uk-flex-center uk-flex-middle"
+     uk-grid <?php echo ($this->attributes) ? 'uk-lightbox' : ''; ?>>
+    <?php foreach ($this->body as $class => $row): ?>
+        <?php foreach ($row as $col): ?>
+            <?php if ($col->addImage): ?>
+
+                <div>
+                    <div class="uk-tile uk-text-center">
+                        <figure <?php if ($col->margin): ?> style="<?php echo $col->margin; ?>"<?php endif; ?>>
+                            <?php if ($col->href): ?>
+                                <a href="<?= $col->href ?>"<?= $col->attributes ?>
+                                    <?php echo ($col->linkTitle) ? ' title="' . $col->linkTitle . '"' : "" ?>
+                                   data-caption="<?php echo ($col->caption) ? $col->caption : $col->alt; ?> <?php
+                                       echo ($col->copyright) ? "Copyright: " . $col->copyright : "" ?>">
+                                    <?php $this->insert('picture_default', $col->picture); ?>
+                                </a>
+                            <?php else: ?>
+                                <?php $this->insert('picture_default', $col->picture); ?>
+                            <?php endif; ?>
+                            <?php if ($col->caption): ?>
+                                <figcaption class="caption"><?php echo $col->caption; ?>
+                                    <?php if ($col->copyright): ?>
+                                        <small><?= $col->copyright; ?></small>
+                                    <?php endif; ?>
+                                </figcaption>
+                            <?php endif; ?>
+                        </figure>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+</div>

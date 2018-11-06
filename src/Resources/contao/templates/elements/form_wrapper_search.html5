@@ -1,0 +1,34 @@
+<!-- indexer::stop -->
+<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+
+    <div>
+        <a class="uk-navbar-toggle" href="#" uk-search-icon></a>
+        <div class="uk-navbar-dropdown" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-expand">
+                    <form class="uk-search uk-search-navbar uk-width-1-1" <?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?>
+                          method="<?= $this->method ?>"
+                          enctype="<?= $this->enctype ?>"<?= $this->attributes ?><?= $this->novalidate ?>>
+                        <div class="formbody">
+                            <?php if ($this->method != 'get'): ?>
+                                <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formSubmit ?>">
+                                <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+                                <?php if ($this->maxFileSize): ?>
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="<?= $this->maxFileSize ?>">
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            <?= $this->hidden ?>
+                            <?= $this->fields ?>
+                        </div>
+                    </form>
+                </div>
+                <div class="uk-width-auto">
+                    <a class="uk-navbar-dropdown-close" href="#" uk-close></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- indexer::continue -->

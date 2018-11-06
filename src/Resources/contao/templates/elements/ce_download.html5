@@ -1,0 +1,13 @@
+<?php if ($this->UIkit_container): ?>
+    <div class="<?= $this->UIkit_container; ?>">
+<?php endif; ?>
+    <div class="<?php echo $this->class; ?> uk-padding-small">
+
+        <p class="download-element ext-<?= $this->extension ?>">
+            <a href="<?= $this->href ?>" title="<?= $this->title ?>"><?= $this->link ?> <span
+                        class="size">(<?= $this->filesize ?>)</span></a>
+        </p>
+    </div>
+<?php if ($this->UIkit_container): ?>
+    </div>
+<?php endif; ?>

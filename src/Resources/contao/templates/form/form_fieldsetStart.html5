@@ -1,0 +1,5 @@
+<fieldset class="uk-fieldset<?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>">
+    
+    <?php if ($this->label): ?>
+    <legend class="uk-legend"><?= $this->label ?></legend>
+<?php endif; ?>

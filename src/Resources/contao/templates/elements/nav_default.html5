@@ -1,0 +1,71 @@
+<!-- indexer::stop -->
+<div class="uk-visible@m">
+    <ul class="<?= $this->level ?> uk-navbar-nav">
+        <?php foreach ($this->items as $item): ?>
+            <?php if ($item['isActive']): ?>
+                <li class="<?= $item['class'] ?> uk-active"><a
+                            class="<?= $item['class'] ?>"<?php if (!empty($item['subitems'])) {
+                        echo ' aria-haspopup="true"';
+                    } ?>><?= $item['link'] ?></a><?= $item['subitems'] ?></li>
+            <?php else: ?>
+                <li<?php if ($item['class']) {
+                    echo ' class="' . $item['class'] . '"';
+                } ?>><a href="<?= $item['href'] ?: './' ?>"
+                        title="<?= $item['pageTitle'] ?: $item['title'] ?>"<?php if ($item['class']) {
+                        echo ' class="' . $item['class'] . '"';
+                    } ?><?php if ($item['accesskey']) {
+                        echo ' accesskey="' . $item['accesskey'] . '"';
+                    } ?><?php if ($item['tabindex']) {
+                        echo ' tabindex="' . $item['tabindex'] . '"';
+                    } ?><?php if ($item['nofollow']) {
+                        echo ' rel="nofollow"';
+                    } ?><?= $item['target'] ?><?php if (!empty($item['subitems'])) {
+                        echo ' aria-haspopup="true"';
+                    } ?>><?= $item['link'] ?></a><?= $item['subitems'] ?></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+</div>
+</div>
+</div>
+<div class="uk-navbar-right">
+
+    <div class="uk-hidden@m">
+        <a class="uk-navbar-toggle" aria-expanded="false">
+    <span uk-navbar-toggle-icon class="uk-navbar-toggle-icon uk-icon">
+      <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" ratio="1"><rect y="9"
+                                                                                                         width="20"
+                                                                                                         height="2"></rect><rect
+                  y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></span>
+        </a>
+
+        <div class="uk-navbar-dropdown uk-navbar-dropdown-dropbar uk-navbar-dropdown-bottom-right uk-background-muted"
+             uk-drop="mode: click; cls-drop: uk-navbar-dropdown; pos: bottom-justify; boundary: .uk-navbar-container; boundary-align: true">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+                <?php foreach ($this->items as $item): ?>
+                    <?php if ($item['isActive']): ?>
+                        <li class="<?= $item['class'] ?> uk-active"><a
+                                    class="<?= $item['class'] ?>"<?php if (!empty($item['subitems'])) {
+                                echo ' aria-haspopup="true"';
+                            } ?>><?= $item['link'] ?></a><?= $item['subitems'] ?></li>
+                    <?php else: ?>
+                        <li<?php if ($item['class']) {
+                            echo ' class="' . $item['class'] . '"';
+                        } ?>><a href="<?= $item['href'] ?: './' ?>"
+                                title="<?= $item['pageTitle'] ?: $item['title'] ?>"<?php if ($item['class']) {
+                                echo ' class="' . $item['class'] . '"';
+                            } ?><?php if ($item['accesskey']) {
+                                echo ' accesskey="' . $item['accesskey'] . '"';
+                            } ?><?php if ($item['tabindex']) {
+                                echo ' tabindex="' . $item['tabindex'] . '"';
+                            } ?><?php if ($item['nofollow']) {
+                                echo ' rel="nofollow"';
+                            } ?><?= $item['target'] ?><?php if (!empty($item['subitems'])) {
+                                echo ' aria-haspopup="true"';
+                            } ?>><?= $item['link'] ?></a><?= $item['subitems'] ?></li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+    <!-- indexer::continue -->

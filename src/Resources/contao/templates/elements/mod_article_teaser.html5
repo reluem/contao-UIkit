@@ -1,0 +1,20 @@
+<article
+        class="<?= $this->class ?> uk-card uk-card-default block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style; ?>"<?php endif; ?>>
+    <div class="uk-card-header-heading">
+        <h3 class="uk-card-title"><?= $this->headline ?></h3>
+    </div>
+    <div class="ce_text uk-card-body block">
+        <?= $this->teaser ?>
+    </div>
+    <div class="uk-card-footer">
+        <div class="uk-text-right">
+            <a href="<?= $this->href ?>" class="uk-button uk-button-default"
+               title="<?= $this->readMore ?>">
+                <?= $this->more ?>
+                <span class="invisible">
+                    <?= $this->headline ?>
+                </span>
+            </a>
+        </div>
+    </div>
+</article>
