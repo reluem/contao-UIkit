@@ -1,0 +1,13 @@
+<div class="<?php echo $this->class; ?> uk-padding-small">
+    <button class="uk-button uk-button-secondary uk-width-1-1 uk-width-auto@s"
+            type="button"><?= ($this->headline) ? $this->headline : 'Download'; ?></button>
+    <div class="uk-dropdown" uk-dropdown="mode: click">
+        <ul class="uk-nav uk-dropdown-nav uk-light">
+            <?php foreach ($this->files as $file): ?>
+                <li class="download-element ext-<?= $file['extension'] ?>">
+                    <a href="<?= $file['href'] ?>" title="<?= $file['title'] ?>"><?= $file['link'] ?> <span
+                                class="size">(<?= $file['filesize'] ?>)</span></a>
+                </li>
+            <?php endforeach; ?></ul>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="<?= $this->class ?>">
+    <div class="uk-margin-small uk-card uk-card-default uk-card-hover">
+        <div class="uk-grid" uk-grid>
+            <div class="uk-width-expand">
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title"><a href="<?= $this->url ?>"
+                                                 title="<?= $this->title ?>"><?= $this->link ?></a>
+                        <span
+                                class="uk-text-meta small">[<?= $this->relevance ?>]</span></h3>
+                    
+                    <?php if ($this->context): ?>
+                        <p class="context"><?= $this->context ?></p>
+                    <?php endif; ?>
+                    
+                    <?php $this->insert('uk_button', array(
+                        'style' => 'uk-button-text',
+                        'href' => $this->url,
+                        'title' => $this->titleText,
+                        'link' => 'Weiterlesen…',
+                    )); ?>
+                </div>
+            </div>
+            <div class="uk-width-auto">
+                <?php if ($this->image): ?>
+                    <div class="uk-card-media-right uk-cover-container">
+                        <?php $image = parse_url($this->image); ?>
+                        {{picture::<?php echo ltrim($image['path'], '/'); ?>?size=50&template=picture_default_cover}}
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<!-- indexer::stop -->
+<?php $this->extend('block_unsearchable_card'); ?>
+
+<?php $this->block('content'); ?>
+    <form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> id="<?= $this->formId ?>"
+                                                                                   method="post"
+                                                                                   class="uk-form-horizontal">
+        <div class="formbody">
+            <?php if ($this->message): ?>
+                <p class="error"><?= $this->message ?></p>
+            <?php endif; ?>
+            <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formId ?>">
+            <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+            <input type="hidden" name="_target_path" value="<?= $this->targetPath ?>">
+            <?php if ($this->logout): ?>
+                <p class="login_info"><?= $this->loggedInAs ?><br><?= $this->lastLogin ?></p>
+            <?php else: ?>
+                <input type="hidden" name="_failure_path" value="<?= $this->failurePath ?>">
+                <input type="hidden" name="_always_use_target_path" value="<?= $this->forceTargetPath ?>">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="username"><?= $this->username ?></label>
+                    <div class="uk-form-controls">
+                        <input type="text" name="username" id="username" class="text uk-input"
+                               value="<?= $this->value ?>">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="password"><?= $this->password ?></label>
+                    <div class="uk-form-controls">
+                        <input type="password" name="password" id="password" class="text uk-input password" value="">
+                    </div>
+                </div>
+                <?php if ($this->autologin): ?>
+                    <div class="checkbox_container uk-margin">
+                        <label class="uk-form-label" for="autologin"><?= $this->autoLabel ?></label>
+                        <div class="uk-form-controls">
+                            <input type="checkbox" name="autologin" id="autologin" value="1"
+                                   class="checkbox  uk-checkbox">
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
+        <div class="submit_container uk-card-footer">
+            <input type="submit" class="submit uk-button uk-button-default uk-width-1-1" value="<?= $this->slabel ?>">
+        </div>
+    </form>
+
+<?php $this->endblock(); ?>
+<!-- indexer::continue -->

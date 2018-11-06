@@ -1,0 +1,48 @@
+<?php $this->extend('form_row'); ?>
+
+<?php $this->block('field'); ?>
+<fieldset id="ctrl_<?= $this->id ?>" class="uk-fieldset radio_container<?php if ($this->class) {
+    echo ' ' . $this->class;
+} ?>">
+    
+    <?php if ($this->label): ?>
+        <legend class="uk-form-label">
+            <?php if ($this->mandatory): ?>
+                <span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->label ?><span
+                        class="mandatory">*</span>
+            <?php else: ?>
+                <?= $this->label ?>
+            <?php endif; ?>
+        </legend>
+    <?php endif; ?>
+    
+    <?php if ($this->hasErrors()): ?>
+        <p class="error"><?= $this->getErrorAsString() ?></p>
+    <?php endif; ?>
+
+    <div class="uk-form-controls">
+        <?php foreach ($this->getOptions() as $option): ?>
+            <?php if ($option['type'] == 'group_start'): ?>
+                <fieldset class="uk-fieldset">
+                <legend class="uk-legend"><?= $option['label'] ?></legend>
+            <?php endif; ?>
+            
+            <?php if ($option['type'] == 'option'): ?>
+                <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>" class="uk-margin-small-right"><input
+                            type="radio" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>"
+                            class="uk-radio radio"
+                            value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>> <?= $option['label'] ?>
+                </label>
+            <?php endif; ?>
+            
+            <?php if ($option['type'] == 'group_end'): ?>
+                </fieldset>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+</fieldset>
+
+<?php if ($this->addSubmit): ?>
+    <input type="submit" id="ctrl_<?= $this->id ?>_submit" class="submit" value="<?= $this->slabel ?>">
+<?php endif; ?>
+<?php $this->endblock(); ?>

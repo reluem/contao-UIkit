@@ -1,0 +1,38 @@
+<!-- indexer::stop -->
+<nav class="pagination uk-margin block">
+
+    <ul class="uk-pagination uk-flex-center">
+        <li class="previous uk-width-expand">
+            <?php if ($this->hasPrevious): ?>
+                <a href="<?= $this->previous['href'] ?>"
+                   title="<?= $this->previous['title'] ?>"><span
+                            uk-pagination-previous></span><span
+                            class="uk-visible@s"> <?= $this->previous['link'] ?></span></a>
+            
+            <?php else: ?>
+                <span class="uk-disabled"></span>
+            <?php endif; ?>
+        </li>
+        
+        <?php foreach ($this->pages as $page): ?>
+            <?php if ($page['href'] === null): ?>
+                <li class="uk-active"><strong class="current"><?= $page['page'] ?></strong></li>
+            <?php else: ?>
+                <li><a href="<?= $page['href'] ?>" class="link" title="<?= $page['title'] ?>"><?= $page['page'] ?></a>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        <li class="next uk-width-expand uk-text-right">
+            <?php if ($this->hasNext): ?>
+                <a href="<?= $this->next['href'] ?>"
+                   title="<?= $this->next['title'] ?>"><span
+                            class="uk-visible@s"><?= $this->next['link'] ?> </span><span
+                            uk-pagination-next></span></a>
+            <?php else: ?>
+                <span class="uk-disabled"></span>
+            <?php endif; ?>
+        </li>
+    </ul>
+
+</nav>
+<!-- indexer::continue -->
