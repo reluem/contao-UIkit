@@ -6,48 +6,49 @@
      *
      * @license LGPL-3.0+
      */
+    declare(strict_types = 1);
     
     namespace reluem;
-
-    use Contao\ModuleNavigation;
-
+    
+    
+    use Contao\Module;
+    use Contao\ModuleModel;
+    use Contao\StringUtil;
+    
+    
     /**
      * Front end module "Navbar" for UIkit
      *
      * @author Leo Feyer <https://github.com/leofeyer>
      */
-    
-    class ModuleNavbar extends ModuleNavigation
+    class UIkitNavbar extends Module
     {
         /**
          * Template
          * @var string
          */
-        protected $strTemplate = 'mod_navigation';
+        protected $strTemplate = 'mod_UIkitnavbar';
         
         
-            /**
+        /**
          * Compile the navbar.
          *
-         * @return array
+         * @return void
          */
         protected function compile()
         {
-            $buffer = parent::compile();
-    
-            $config = \StringUtil::deserialize($this->UIkit_navbarModules, true);
-            $modules = array();
+            $config = StringUtil::deserialize($this->UIkit_navbarModules, true);
+            $modules = [];
             $models = $this->prefetchModules($config);
             foreach ($config as $module) {
                 $id = $module['module'];
-                if ($id != '' && !$module['inactive'] && array_key_exists($id, $models)) {
+                if ($id !== '' && !$module['inactive'] && array_key_exists($id, $models)) {
                     $modules[] = $this->generateModule($module, $models[$id]);
                 }
             }
             $this->Template->modules = $modules;
-            return $buffer;
         }
-        
+        //TODO group modules by floating. maybe in generatoreModule function
         /**
          * Generate a frontend module.
          *
@@ -60,20 +61,20 @@
         {
             $class = $module['cssClass'];
             if ($module['floating']) {
-                if ($class != '') {
+                if ($class !== '') {
                     $class .= ' ';
                 }
                 $class .= 'uk-navbar-' . $module['floating'];
             }
             
-            $rendered = $this->getFrontendModule($model);
-            return array(
+            return [
                 'type' => 'module',
-                'module' => $rendered,
+                'module' => $this->getFrontendModule($model),
                 'id' => $module['module'],
                 'class' => $class,
-            );
+            ];
         }
+        
         
         /**
          * Extract module ids from navbar config.
@@ -84,12 +85,12 @@
          */
         protected function extractModuleIds($config)
         {
-            $ids = array();
+            $ids = [];
             foreach ($config as $index => $module) {
                 if ($module['inactive']) {
                     continue;
                 }
-                $ids[$index] = intval($module['module']);
+                $ids[$index] = (int)$module['module'];
             }
             return $ids;
         }
@@ -104,11 +105,11 @@
         protected function prefetchModules($config)
         {
             $ids = $this->extractModuleIds($config);
-            $models = array();
+            $models = [];
             if ($ids) {
                 // prefetch modules, so only 1 query is required
                 $ids = implode(',', $ids);
-                $collection = \ModuleModel::findBy(array('tl_module.id IN(' . $ids . ')'), array());
+                $collection = ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
                 if ($collection) {
                     while ($collection->next()) {
                         $model = $collection->current();
@@ -118,5 +119,4 @@
             }
             return $models;
         }
-        
     }

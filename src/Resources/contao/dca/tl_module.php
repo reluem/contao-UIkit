@@ -1,11 +1,11 @@
 <?php
     
     
-    
     \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
+        ->addLegend('UIkit_navbar', 'title')
         ->addField('UIkit_navbarModules', 'nav_legend',
             \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-        ->applyToPalette('navigation', 'tl_module');
+        ->applyToPalette('default', 'tl_module');
     
     Controller::loadDataContainer('tl_content');
     

@@ -1,0 +1,14 @@
+<!-- indexer::stop -->
+<nav class="uk-navbar-container <?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>
+     uk-navbar>
+    <div class="uk-navbar uk-navbar-default uk-container uk-container-large">
+        <?php dump($this->modules); ?>
+        <?php foreach ($this->modules as $module): ?>
+            <div class="<?= $module['class']; ?> uk-visible@l">
+                <?= $module['module']; ?>
+            </div>
+        
+        <?php endforeach; ?>
+
+</nav>
+<!-- indexer::continue -->
