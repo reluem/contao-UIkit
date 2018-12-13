@@ -18,24 +18,30 @@
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    class extendCssClassesHooks extends \Controller
+    class UIkitclassesHook extends \Controller
     {
         /**
          * extends CSS classes for UIkit
          */
         public function extendCssClasses($objTemplate)
         {
+            $arrData = $objTemplate->getData();
+            if ($arrData['sc_type'] > 0) {
+                if (!empty($arrData['UIkit_section'])) {
+                    $objTemplate->class .= ' ' . $arrData->UIkit_section;
+                }
+            }
             
             // columnset section padding (size)
             if ($objTemplate->sc_type > 0) {
-                if (isset($objTemplate->UIkit_section) && ($objTemplate->UIkit_section != '')) {
+                if (!empty($objTemplate->UIkit_section)) {
                     $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
                 }
             }
             
             
             // background
-            if (isset($objTemplate->UIkit_background) && $objTemplate->UIkit_background != '') {
+            if (!empty($objTemplate->UIkit_background)) {
                 
                 // add section with background for columnset
                 if ($objTemplate->sc_type > 0) {
@@ -48,9 +54,8 @@
             };
             
             // columns valign
-            if (isset($objTemplate->UIkit_valign) && $objTemplate->UIkit_valign === 1) {
-                $objTemplate->scclass .= " uk-flex uk-flex-middle";
-                
+            if ($objTemplate->UIkit_valign === 1) {
+                $objTemplate->scclass .= ' uk-flex uk-flex-middle';
             }
         }
 

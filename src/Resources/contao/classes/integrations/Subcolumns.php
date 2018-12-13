@@ -27,11 +27,11 @@
         
         public function appendColumnsetIdToPalette($dataContainer)
         {
-            if ($dataContainer->table == 'tl_content') {
+            if ($dataContainer->table === 'tl_content') {
                 
                 //moved to DCA
                 
-            } elseif ($dataContainer->table == 'tl_form_field') {
+            } elseif ($dataContainer->table === 'tl_form_field') {
                 
                 //TODO move to DCA as well
                 
