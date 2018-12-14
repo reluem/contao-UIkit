@@ -1,11 +1,6 @@
 <?php
     
-    
-    \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-        ->addLegend('UIkit_navbar', 'title')
-        ->addField('UIkit_navbarModules', 'nav_legend',
-            \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-        ->applyToPalette('default', 'tl_module');
+    $GLOBALS ['TL_DCA'] ['tl_module'] ['palettes'] ['UIkit_navbar'] = '{title_legend},name,type;{UIkit_navbar},UIkit_navbarModules;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
     
     Controller::loadDataContainer('tl_content');
     
@@ -36,7 +31,7 @@
                             'inputType' => 'select',
                             'options' => array('left', 'right'),
                             'reference' => &$GLOBALS['TL_LANG']['MSC'],
-                            'eval' => array('style' => 'width: 150px', 'includeBlankOption' => true, 'chosen' => true),
+                            'eval' => array('style' => 'width: 150px', 'chosen' => true),
                         ),
                     
                     'cssClass' => array(

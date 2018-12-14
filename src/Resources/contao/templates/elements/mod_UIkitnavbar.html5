@@ -1,11 +1,17 @@
 <!-- indexer::stop -->
-<nav class="uk-navbar-container <?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>
-     uk-navbar>
-    <div class="uk-navbar uk-navbar-default uk-container uk-container-large">
-        <?php dump($this->modules); ?>
-        <?php foreach ($this->modules as $module): ?>
-            <div class="<?= $module['class']; ?> uk-visible@l">
-                <?= $module['module']; ?>
+<nav class="uk-navbar-container <?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+    <div class="uk-navbar uk-navbar-default uk-container uk-container-large" uk-navbar>
+        <?php foreach ($this->modules as $part => $modules): ?>
+            <div class="uk-navbar-<?= $part; ?>">
+                <?php foreach ($modules as $module): ?>
+                    <?php if ($module['class']): ?>
+                        <div class="<?= $module['class']; ?>">
+                    <?php endif; ?>
+                    <?= $module['module']; ?>
+                    <?php if ($module['class']): ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         
         <?php endforeach; ?>

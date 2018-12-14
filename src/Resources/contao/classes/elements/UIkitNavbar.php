@@ -40,15 +40,24 @@
             $config = StringUtil::deserialize($this->UIkit_navbarModules, true);
             $modules = [];
             $models = $this->prefetchModules($config);
-            foreach ($config as $module) {
-                $id = $module['module'];
-                if ($id !== '' && !$module['inactive'] && array_key_exists($id, $models)) {
-                    $modules[] = $this->generateModule($module, $models[$id]);
+            // find unique values for floating and make array
+            foreach (array_unique(array_column($config, 'floating')) as $floating) {
+                $parts = [];
+                // add modules to floating part
+                foreach ($config as $module) {
+                    if ($module['floating'] === $floating) {
+                        $id = $module['module'];
+                        if ($id !== '' && array_key_exists($id, $models) && !$module['inactive']) {
+                            $parts[] = $this->generateModule($module, $models[$id]);
+                        }
+                    }
                 }
+                $modules[$floating] = $parts;
             }
+            
             $this->Template->modules = $modules;
         }
-        //TODO group modules by floating. maybe in generatoreModule function
+        
         /**
          * Generate a frontend module.
          *
@@ -59,19 +68,12 @@
          */
         protected function generateModule($module, \ModuleModel $model)
         {
-            $class = $module['cssClass'];
-            if ($module['floating']) {
-                if ($class !== '') {
-                    $class .= ' ';
-                }
-                $class .= 'uk-navbar-' . $module['floating'];
-            }
-            
             return [
                 'type' => 'module',
                 'module' => $this->getFrontendModule($model),
                 'id' => $module['module'],
-                'class' => $class,
+                'class' => $module['cssClass'],
+                'floating' => $module['floating'],
             ];
         }
         
