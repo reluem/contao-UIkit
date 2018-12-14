@@ -19,19 +19,12 @@
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    
-    
-    
     class Subcolumns extends \Backend
     {
         
         public function appendColumnsetIdToPalette($dataContainer)
         {
-            if ($dataContainer->table === 'tl_content') {
-                
-                //moved to DCA
-                
-            } elseif ($dataContainer->table === 'tl_form_field') {
+            if ($dataContainer->table === 'tl_form_field') {
                 
                 //TODO move to DCA as well
                 
