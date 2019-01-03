@@ -1,6 +1,9 @@
 <?php
     
-    $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = 'reluem\UIkitNavbar';
+    use reluem\UIkitNavbar;
+    use reluem\UIkitclassesHook;
+    
+    $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = UIkitNavbar::class;
     
     
     /**
@@ -43,7 +46,7 @@
      * Hooks
      */
     
-    $GLOBALS['TL_HOOKS']['parseTemplate'][] = array('reluem\UIkitclassesHook', 'extendCssClasses');
+    $GLOBALS['TL_HOOKS']['parseTemplate'][] = array(UIkitclassesHook::class, 'extendCssClasses');
     //$GLOBALS['TL_HOOKS']['tabControlJS'][] = '/files/theme/UIkit/src/js/core/modal.js';
 
 
