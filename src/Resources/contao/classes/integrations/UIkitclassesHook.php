@@ -26,17 +26,13 @@
         public function extendCssClasses($objTemplate)
         {
             $arrData = $objTemplate->getData();
-            if ($arrData['sc_type'] > 0) {
-                if (!empty($arrData['UIkit_section'])) {
-                    $objTemplate->class .= ' ' . $arrData->UIkit_section;
-                }
+            if (($arrData['sc_type'] > 0) && !empty($arrData['UIkit_section'])) {
+                $objTemplate->class .= ' ' . $arrData->UIkit_section;
             }
             
             // columnset section padding (size)
-            if ($objTemplate->sc_type > 0) {
-                if (!empty($objTemplate->UIkit_section)) {
-                    $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
-                }
+            if (($objTemplate->sc_type > 0) && !empty($objTemplate->UIkit_section)) {
+                $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
             }
             
             
@@ -51,12 +47,13 @@
                 else {
                     $objTemplate->class .= ' uk-tile uk-tile-' . $objTemplate->UIkit_background . ' uk-padding-small';
                 }
-            };
+            }
             
             // columns valign
-            if ($objTemplate->UIkit_valign === 1) {
+            if (($objTemplate->sc_type > 0) && $arrData['UIkit_valign'] > 0) {
                 $objTemplate->scclass .= ' uk-flex uk-flex-middle';
             }
+            
         }
 
 //        /**
