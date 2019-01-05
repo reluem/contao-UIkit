@@ -50,7 +50,7 @@
             }
             
             // columns valign
-            if (($objTemplate->sc_type > 0) && $arrData['UIkit_valign'] > 0) {
+            if (($objTemplate->sc_type > 0) && $arrData['UIkit_valign'] === '1') {
                 $objTemplate->scclass .= ' uk-flex uk-flex-middle';
             }
             
