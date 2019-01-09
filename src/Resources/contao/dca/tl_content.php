@@ -1,5 +1,6 @@
 <?php
     
+    use Contao\CoreBundle\DataContainer\PaletteManipulator;
     use reluem\Subcolumns;
     
     
@@ -29,22 +30,23 @@
             if (\is_string($palette)) {
                 
                 //  add uk-background classes to DCA
-                \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
+                PaletteManipulator::create()
                     ->addLegend('UIkit_legend', array('template_legend', 'protected_legend'),
-                        \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_BEFORE)
+                        PaletteManipulator::POSITION_BEFORE)
                     ->addField('UIkit_background', 'UIkit_legend',
-                        \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+                        PaletteManipulator::POSITION_APPEND)
                     ->applyToPalette($key, 'tl_content');
                 
                 //  if palette contains sc_type (Subcolumns), add uk-container classes to DCA & remove default color field
                 if ($key === 'colsetStart') {
-                    \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
+                    PaletteManipulator::create()
                         ->addField(array('UIkit_container', 'UIkit_section', 'UIkit_valign'),
                             'UIkit_legend',
-                            \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+                            PaletteManipulator::POSITION_APPEND)
                         ->applyToPalette($key, 'tl_content');
-                    \ContaoCommunityAlliance\MetaPalettes\MetaPalettes::removeFields('tl_content', 'colsetStart',
-                        array('sc_color'));
+                    
+                    unset($GLOBALS['TL_DCA']['tl_content']['fields']['sc_color']);
+                    
                     
                 }
             }
