@@ -55,7 +55,6 @@
      * JS Inclusion
      */
     $GLOBALS['TL_HEAD'][] = '<link rel="preload" as="script" href="' . Debug::uncompressedFile('files/theme/UIkit/dist/js/uikit.min.js') . '">';
-    $GLOBALS['TL_HEAD'][] = '<link defer href="' . Debug::uncompressedFile('files/theme/js/ajaxReload.min.js') . '">';
     $GLOBALS['TL_HEAD'][] = '<link rel="preload" as="script" href="' . Debug::uncompressedFile('files/theme/UIkit/dist/js/uikit-icons.min.js') . '">';
     
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('files/theme/UIkit/dist/js/uikit.min.js');
