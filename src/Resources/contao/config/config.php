@@ -1,10 +1,12 @@
 <?php
     
+    use reluem\UIkitheroImage;
     use Haste\Util\Debug;
     use reluem\UIkitNavbar;
     use reluem\UIkitclassesHook;
     
     $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = UIkitNavbar::class;
+    $GLOBALS['TL_CTE']['media']['heroimage'] = UIkitheroImage::class;
     
     
     /**

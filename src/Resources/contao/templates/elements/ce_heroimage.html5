@@ -1,0 +1,37 @@
+<!-- indexer::stop -->
+<div class="uk-cover-container uk-overflow-hidden <?= $this->UIkit_inverse; ?> <?= $this->class ?>" <?= $this->cssID ?>
+     uk-height-viewport="<?= $this->UIkit_viewportHeight; ?>">
+    
+    <?php $picture = $this->picture;
+        $this->insert('picture_default_cover', $picture); ?>
+    
+    <?php if ($this->text || $this->headline): ?>
+
+        <div class="uk-position-center container">
+            <div class="uk-container uk-container-small">
+                <<?= $this->hl ?> class="uk-heading-primary"><?= $this->headline ?></<?= $this->hl ?>>
+            <?php if ($this->text): ?>
+                <div class="uk-text-lead">
+                    <?= $this->text ?>
+                </div>
+            <?php endif; ?>
+            
+            <?php if ($this->addUIkit_button): ?>
+                <?php foreach ($this->UIkit_button as $button): ?>
+                    <a onclick="_paq.push(['trackEvent', 'Hero', 'HeroButtonClick']);"
+                       href="<?= $button->url ?>" target="_blank" role="button" tabindex="0"
+                       aria-pressed="false"
+                       class="uk-button uk-button-default">
+                        <?= $button->linkTitle ?>
+                    </a>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="uk-position-bottom-left uk-padding-small uk-visible@s uk-logo">
+        // custom Logo Insert
+    </div>
+
+</div>
+<!-- indexer::continue -->
