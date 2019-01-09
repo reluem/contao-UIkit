@@ -1,5 +1,7 @@
 <?php
     
+    use reluem\Subcolumns;
+    
     
     /**
      *
@@ -8,7 +10,7 @@
      **/
     
     $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] =
-        array('reluem\Subcolumns', 'appendColumnsetIdToPalette');
+        array(Subcolumns::class, 'appendColumnsetIdToPalette');
     
     
     $GLOBALS['TL_DCA']['tl_content']['fields']['sc_type']['eval']['submitOnChange'] = true;

@@ -1,5 +1,7 @@
 <?php
     
+    use \Contao\Controller;
+    
     $GLOBALS ['TL_DCA'] ['tl_module'] ['palettes'] ['UIkit_navbar'] = '{title_legend},name,type;{UIkit_navbar},UIkit_navbarModules;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
     
     Controller::loadDataContainer('tl_content');
