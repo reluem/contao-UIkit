@@ -8,6 +8,8 @@
     
     namespace reluem;
     
+    use Contao\Controller;
+    
     /**
      * Add css fields to content elements.
      *
@@ -18,7 +20,7 @@
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    class UIkitclassesHook extends \Controller
+    class UIkitclassesHook extends Controller
     {
         /**
          * extends CSS classes for UIkit
@@ -54,7 +56,14 @@
                 $objTemplate->scclass .= ' uk-flex uk-flex-middle';
             }
             
+            // remove tabcontrol JS
+            $needle = 'system/modules/tabcontrol/assets/js/moo_tabcontrol.js';
+            if (TL_MODE === 'FE' && $objTemplate->titles && ($key = array_search($needle,
+                    $GLOBALS['TL_JAVASCRIPT'], true)) !== false) {
+                unset($GLOBALS['TL_JAVASCRIPT'][$key]);
+            }
         }
+
 
 //        /**
 //         * manipulate the given form to add advanced css to the existing css class
