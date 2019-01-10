@@ -1,0 +1,8 @@
+<a class="uk-button <?php echo $this->style ?: 'uk-button-default'; ?>"
+   title="<?= \Contao\StringUtil::specialchars($this->title) ?>"
+   href="<?= $this->href; ?>" <?= $this->target ?><?= $this->rel ?>
+   <?php if ($this->onclick): ?>onclick="<?= $this->onclick; ?>"<?php endif; ?>
+   <?php if ($this->tooltip): ?>uk-tooltip="title:<?= \Contao\StringUtil::specialchars($this->tooltip); ?>; pos: bottom" <?php endif; ?>
+   aria-pressed="false" role="button">
+    <?= $this->link; ?>
+</a>

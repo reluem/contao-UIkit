@@ -8,13 +8,12 @@
     </div>
     <div class="uk-card-footer">
         <div class="uk-text-right">
-            <a href="<?= $this->href ?>" class="uk-button uk-button-default"
-               title="<?= $this->readMore ?>">
-                <?= $this->more ?>
-                <span class="invisible">
-                    <?= $this->headline ?>
-                </span>
-            </a>
+            <?php $this->insert('uk_button', array(
+                'href' => $this->href,
+                'title' => $this->readMore,
+                'link' => $this->more . '<span class="invisible">' . $this->headline . '</span>',
+            
+            )); ?>
         </div>
     </div>
 </article>

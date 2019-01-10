@@ -16,7 +16,9 @@
                         'style' => 'uk-button-text',
                         'href' => $this->url,
                         'title' => $this->titleText,
-                        'link' => 'Weiterlesen…',
+                        'link' => $this->more,
+                        'target' => $this->target,
+                        'rel' => $this->rel, 
                     )); ?>
                 </div>
             </div>
