@@ -39,9 +39,5 @@
         </div>
     <?php endif; ?>
 
-    <div class="uk-position-bottom-left uk-padding-small uk-visible@s uk-logo">
-        // custom Logo Insert
-    </div>
-
 </div>
 <!-- indexer::continue -->
