@@ -7,37 +7,38 @@
     
     <?php if ($this->text || $this->headline): ?>
 
-        <div class="uk-position-center container">
-            <div class="uk-container uk-container-small">
-                <<?= $this->hl ?> class="uk-heading-primary"><?= $this->headline ?></<?= $this->hl ?>>
-            <?php if ($this->text): ?>
-                <div class="uk-text-lead">
-                    <?= $this->text ?>
-                </div>
-            <?php endif; ?>
-            
-            <?php if ($this->addUIkit_button):
-                $this->UIkit_button = deserialize($this->UIkit_button, true);
-                $UIkit_button = array(); ?>
-                <div uk-grid
-                     class="uk-child-width-auto uk-grid-medium uk-flex-inline uk-flex-middle uk-flex-center uk-grid">
-                    <?php foreach ($this->UIkit_button as $UIkit_button): ?>
-                        <div>
-                            <?php $this->insert('uk_button', array(
-                                'href' => $UIkit_button['url'],
-                                'title' => $UIkit_button['linkTitle'],
-                                'link' => $UIkit_button['linkTitle'],
-                                'target' => $UIkit_button['target'],
-                                'tooltip' => $UIkit_button['tooltip'],
-                                'style' => $UIkit_button['linkStyle'],
-                                'onclick' => '_paq.push([\'trackEvent\', \'Hero\', \'HeroButtonClick\']);',
-                            )); ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-        </div>
-    <?php endif; ?>
+    <div class="uk-position-center container">
+        <div class="uk-container uk-container-small">
+            <<?= $this->hl ?> class="uk-heading-primary"><?= $this->headline ?></<?= $this->hl ?>>
+        <?php if ($this->text): ?>
+            <div class="uk-text-lead">
+                <?= $this->text ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if ($this->addUIkit_button):
+            $this->UIkit_button = deserialize($this->UIkit_button, true);
+            $UIkit_button = array(); ?>
+            <div uk-grid
+                 class="uk-child-width-auto uk-grid-medium uk-flex-inline uk-flex-middle uk-flex-center uk-grid">
+                <?php foreach ($this->UIkit_button as $UIkit_button): ?>
+                    <div>
+                        <?php $this->insert('uk_button', array(
+                            'href' => $UIkit_button['url'],
+                            'title' => $UIkit_button['linkTitle'],
+                            'link' => $UIkit_button['linkTitle'],
+                            'target' => $UIkit_button['target'],
+                            'tooltip' => $UIkit_button['tooltip'],
+                            'style' => $UIkit_button['linkStyle'],
+                            'onclick' => '_paq.push([\'trackEvent\', \'Hero\', \'HeroButtonClick\']);',
+                        )); ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
 
+<?php endif; ?>
 </div>
 <!-- indexer::continue -->
