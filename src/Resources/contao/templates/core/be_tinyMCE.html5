@@ -1,6 +1,15 @@
 <?php
-    
-    namespace Contao;
+/**
+ * Contao Open Source CMS
+ *
+ * Copyright (c) 2005-2019 Leo Feyer
+ *
+ * @author    reluem
+ * @license   GNU/LGPL
+ * @copyright reluem 2019
+ */
+
+namespace Contao;
     
     if ($GLOBALS['TL_CONFIG']['useRTE']):
         
@@ -32,7 +41,7 @@
                         Backend.openModalBrowser(field_name, url, type, win, '<?= $this->source ?>');
                     },
                     file_browser_callback_types: <?= json_encode($this->fileBrowserTypes) ?>,
-                    content_css: 'files/theme/tinymce.css<?= '?' . time() ?>',
+                    content_css: 'files/theme/UIkit/dist/css/uikit.css<?= '?' . time() ?>',
                     plugins: 'autosave charmap code fullscreen image importcss link lists paste searchreplace stripnbsp tabfocus table visualblocks visualchars',
                     browser_spellcheck: true,
                     tabfocus_elements: ':prev,:next',
