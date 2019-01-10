@@ -186,7 +186,9 @@
     ];
     
     /**
-     *  UIkit HeroImage
+     *
+     * UIkit HeroImage
+     *
      */
     
     $GLOBALS['TL_DCA']['tl_content']['palettes']['heroimage'] = 'name,type,headline;{image_legend:hide},addImage;{text_legend},text;{UIkit_button_legend},addUIkit_button;{hero_image_legend}, UIkit_viewportHeight,UIkit_inverse;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
@@ -212,5 +214,10 @@
     );
     
     
+    /**
+     *
+     * LinkTeaser
+     *
+     */
     
-    
+    $GLOBALS['TL_DCA']['tl_content']['palettes']['linkteaser'] = '{type_legend},type,headline;type;{text_legend},text;{link_legend},url,target,linkTitle,titleText;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
