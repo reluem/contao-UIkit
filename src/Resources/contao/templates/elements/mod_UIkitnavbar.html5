@@ -15,6 +15,6 @@
             </div>
         
         <?php endforeach; ?>
-
+    </div>
 </nav>
 <!-- indexer::continue -->
