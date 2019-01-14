@@ -1,3 +1,5 @@
+"use strict";
+
 /*
  * Contao Open Source CMS
  *
@@ -8,10 +10,10 @@
  * @copyright reluem 2019
  */
 
-let viewportWidth = document.querySelectorAll(".uk-width-viewport");
-let setMargin = () => {
-    requestAnimationFrame(() => {
-        [].forEach.call(viewportWidth, (e) => {
+var viewportWidth = document.querySelectorAll(".uk-width-viewport");
+var setMargin = function setMargin() {
+    requestAnimationFrame(function () {
+        [].forEach.call(viewportWidth, function (e) {
             e.style.marginLeft = "";
             e.style.marginLeft = -e.offsetLeft + "px";
             e.style.width = document.body.clientWidth + "px";
