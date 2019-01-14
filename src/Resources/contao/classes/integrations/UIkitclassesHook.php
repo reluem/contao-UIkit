@@ -58,7 +58,7 @@
             if (!empty($objTemplate->UIkit_background)) {
                 
                 // add section with background for columnset if container expand
-                if ($objTemplate->sc_type > 0 && $objTemplate->expand_UIkit_container ) {
+                if ($objTemplate->sc_type > 0) {
                     $objTemplate->class .= ' uk-background-' . $objTemplate->UIkit_background;
                     
                 } // add background to content elements
