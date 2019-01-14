@@ -63,4 +63,6 @@
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('files/theme/UIkit/dist/js/uikit.min.js');
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('files/theme/UIkit/dist/js/uikit-icons.min.js');
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('files/theme/js/ajaxReload.min.js');
+    $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('/bundles/ContaoUIkit/js/width-viewport.min.js');
+
     

@@ -40,9 +40,10 @@
                 //  if palette contains sc_type (Subcolumns), add uk-container classes to DCA & remove default color field
                 if ($key === 'colsetStart') {
                     PaletteManipulator::create()
-                        ->addField(array('UIkit_container', 'UIkit_section', 'UIkit_valign'),
+                        ->addField(array('UIkit_section', 'expand_UIkit_container'),
                             'UIkit_legend',
                             PaletteManipulator::POSITION_APPEND)
+                        ->addField('UIkit_valign', 'colset_legend')
                         ->applyToPalette($key, 'tl_content');
                     
                     unset($GLOBALS['TL_DCA']['tl_content']['fields']['sc_color']);
@@ -53,61 +54,70 @@
         }
     };
     
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_background'] = array
-    (
-        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_background'],
-        'inputType' => 'select',
-        'default' => 'default',
-        'options' => array(
-            'default',
-            'muted',
-            'primary',
-            'secondary',
-        ),
-        'eval' => array('tl_class' => 'w50 wizard', 'includeBlankOption' => true),
-        'sql' => "varchar(64) NOT NULL default ''",
-    );
+    $GLOBALS['TL_DCA']['tl_content']['subpalettes']['expand_UIkit_container'] = 'UIkit_container';
+    $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'expand_UIkit_container';
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_background'] =
+        [
+            'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_background'],
+            'inputType' => 'select',
+            'default' => 'default',
+            'options' => [
+                'default',
+                'muted',
+                'primary',
+                'secondary',
+            ],
+            'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
+            'sql' => "varchar(64) NOT NULL default ''",
+        ];
     
-    
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_container'] = array
-    (
-        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_container'],
-        'inputType' => 'select',
-        'default' => 'uk-container uk-container-large',
-        'options' => array(
-            'uk-container',
-            'uk-container uk-container-large',
-            'uk-container uk-container-expand',
-        ),
-        'eval' => array('tl_class' => 'w50 wizard'),
-        'sql' => "varchar(64) NOT NULL default ''",
-    );
-    
-    
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_section'] = array
-    (
-        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_section'],
-        'inputType' => 'select',
-        'default' => 'uk-section',
-        'options' => array(
-            'uk-section',
-            'uk-section uk-section-small',
-            'uk-section uk-section-large',
-            'uk-section uk-section-xlarge',
-        ),
-        'eval' => array('tl_class' => 'w50 wizard', 'includeBlankOption' => true),
-        'sql' => "varchar(64) NOT NULL default ''",
-    );
-    
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_valign'] = array
-    (
-        'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_valign'],
-        'default' => 0,
+    $GLOBALS['TL_DCA']['tl_content']['fields']['expand_UIkit_container'] = [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['expand_UIkit_container'],
         'exclude' => true,
         'inputType' => 'checkbox',
-        'eval' => array('tl_class' => 'w50 m12'),
+        'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 m12'],
         'sql' => "char(1) NOT NULL default ''",
-    );
+    ];
+    
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_container'] =
+        [
+            'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_container'],
+            'inputType' => 'select',
+            'default' => 'uk-container',
+            'options' => [
+                'uk-container',
+                'uk-container uk-container-large',
+                'uk-container uk-container-expand',
+            ],
+            'eval' => ['tl_class' => 'w50 wizard'],
+            'sql' => "varchar(64) NOT NULL default ''",
+        ];
+    
+    
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_section'] =
+        [
+            'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_section'],
+            'inputType' => 'select',
+            'default' => 'uk-section',
+            'options' => [
+                'uk-section',
+                'uk-section uk-section-small',
+                'uk-section uk-section-large',
+                'uk-section uk-section-xlarge',
+            ],
+            'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
+            'sql' => "varchar(64) NOT NULL default ''",
+        ];
+    
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_valign'] =
+        [
+            'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_valign'],
+            'default' => 0,
+            'exclude' => true,
+            'inputType' => 'checkbox',
+            'eval' => ['tl_class' => 'w50 m12'],
+            'sql' => "char(1) NOT NULL default ''",
+        ];
     
     
     /**
@@ -194,24 +204,24 @@
     $GLOBALS['TL_DCA']['tl_content']['palettes']['heroimage'] = 'name,type,headline;{image_legend:hide},addImage;{text_legend},text;{UIkit_button_legend},addUIkit_button;{hero_image_legend}, UIkit_viewportHeight,UIkit_inverse;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
     
     
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_viewportHeight'] = array(
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_viewportHeight'] = [
         'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_viewportHeight'],
         'exclude' => true,
         'search' => true,
         'inputType' => 'text',
         'default' => 'offset-top: true; min-height: 400',
-        'eval' => array('tl_class' => 'w50'),
+        'eval' => ['tl_class' => 'w50'],
         'sql' => "varchar(255) NOT NULL default ''",
-    );
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_inverse'] = array(
+    ];
+    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_inverse'] = [
         'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_inverse'],
         'exclude' => true,
         'search' => true,
         'inputType' => 'select',
-        'options' => array('uk-light', 'uk-dark'),
-        'eval' => array('tl_class' => 'w50 wizard'),
+        'options' => ['uk-light', 'uk-dark'],
+        'eval' => ['tl_class' => 'w50 wizard'],
         'sql' => "varchar(255) NOT NULL default ''",
-    );
+    ];
     
     
     /**

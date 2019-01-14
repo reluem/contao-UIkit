@@ -27,33 +27,44 @@
          */
         public function extendCssClasses($objTemplate)
         {
-            $arrData = $objTemplate->getData();
-            if (($arrData['sc_type'] > 0) && !empty($arrData['UIkit_section'])) {
-                $objTemplate->class .= ' ' . $arrData->UIkit_section;
-            }
             
-            // columnset section padding (size)
-            if (($objTemplate->sc_type > 0) && !empty($objTemplate->UIkit_section)) {
-                $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
+            // Columnset
+            if ($objTemplate->sc_type > 0) {
+                
+                if (!empty($objTemplate->UIkit_section)) {
+                    $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
+                }
+                
+                // columnset section padding (size)
+                if (!empty($objTemplate->UIkit_section)) {
+                    $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
+                }
+                
+                // columnset container breakout
+                if ($objTemplate->expand_UIkit_container) {
+                    $objTemplate->class .= ' uk-width-viewport';
+                    $objTemplate->container = $objTemplate->UIkit_container;
+                    
+                }
+                
+                // columns valign
+                if ($objTemplate->UIkit_valign === '1') {
+                    $objTemplate->scclass .= ' uk-flex uk-flex-middle';
+                }
+                
             }
-            
             
             // background
             if (!empty($objTemplate->UIkit_background)) {
                 
-                // add section with background for columnset
-                if ($objTemplate->sc_type > 0) {
+                // add section with background for columnset if container expand
+                if ($objTemplate->sc_type > 0 && $objTemplate->expand_UIkit_container ) {
                     $objTemplate->class .= ' uk-background-' . $objTemplate->UIkit_background;
                     
                 } // add background to content elements
                 else {
                     $objTemplate->class .= ' uk-tile uk-tile-' . $objTemplate->UIkit_background . ' uk-padding-small';
                 }
-            }
-            
-            // columns valign
-            if (($objTemplate->sc_type > 0) && $arrData['UIkit_valign'] === '1') {
-                $objTemplate->scclass .= ' uk-flex uk-flex-middle';
             }
             
             // remove tabcontrol JS
