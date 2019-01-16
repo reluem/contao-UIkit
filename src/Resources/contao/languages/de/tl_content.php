@@ -12,6 +12,8 @@
     
     $GLOBALS['TL_LANG']['tl_content']['UIkit_container'][0] = 'Container';
     $GLOBALS['TL_LANG']['tl_content']['UIkit_container'][1] = 'Dem Spaltenset eine maximale Breite zuweisen.';
+    $GLOBALS['TL_LANG']['tl_content']['expand_UIkit_container'][0] = 'Maximale Breite';
+    $GLOBALS['TL_LANG']['tl_content']['expand_UIkit_container'][1] = 'Aus dem Container ausbrechen und die Hintergrundfarbe über die gesamte Breite anzeigen.';
     
     $GLOBALS['TL_LANG']['tl_content']['UIkit_section'][0] = 'Section';
     $GLOBALS['TL_LANG']['tl_content']['UIkit_section'][1] = 'Das Spaltenset als Section mit einem Abstand darstellen.';

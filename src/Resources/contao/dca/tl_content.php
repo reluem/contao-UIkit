@@ -39,13 +39,13 @@
                 
                 //  if palette contains sc_type (Subcolumns), add uk-container classes to DCA & remove default color field
                 if ($key === 'colsetStart') {
+                    
+                    
                     PaletteManipulator::create()
-                        ->addField(array('UIkit_section', 'expand_UIkit_container'),
+                        ->addField(array('UIkit_section', 'UIkit_valign', 'expand_UIkit_container'),
                             'UIkit_legend',
                             PaletteManipulator::POSITION_APPEND)
-                        ->addField('UIkit_valign', 'colset_legend')
                         ->applyToPalette($key, 'tl_content');
-                    
                     unset($GLOBALS['TL_DCA']['tl_content']['fields']['sc_color']);
                     
                     
@@ -75,7 +75,7 @@
         'label' => &$GLOBALS['TL_LANG']['tl_content']['expand_UIkit_container'],
         'exclude' => true,
         'inputType' => 'checkbox',
-        'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 m12'],
+        'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 m12 clr'],
         'sql' => "char(1) NOT NULL default ''",
     ];
     
@@ -89,7 +89,7 @@
                 'uk-container uk-container-large',
                 'uk-container uk-container-expand',
             ],
-            'eval' => ['tl_class' => 'w50 wizard'],
+            'eval' => ['tl_class' => 'w50', 'includeBlankOption' => true],
             'sql' => "varchar(64) NOT NULL default ''",
         ];
     
@@ -230,4 +230,4 @@
      *
      */
     
-    $GLOBALS['TL_DCA']['tl_content']['palettes']['linkteaser'] = '{type_legend},type,headline;type;{text_legend},text;{link_legend},url,target,linkTitle,titleText;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+    $GLOBALS['TL_DCA']['tl_content']['palettes']['linkteaser'] = '{type_legend},type,headline;{text_legend},text;{link_legend},url,target,linkTitle,titleText;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
