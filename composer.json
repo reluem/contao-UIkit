@@ -25,7 +25,6 @@
     "npm-asset/uikit": "^3.0"
   },
   "extra": {
-    "contao-manager-plugin": "Reluem\\ContaoUIkitBundle\\ContaoManager\\Plugin",
     "installer-types": [
       "bower-asset",
       "npm-asset"
@@ -35,6 +34,7 @@
         "type:bower-asset",
         "type:npm-asset"
       ]
-    }
+    },
+    "contao-manager-plugin": "Reluem\\ContaoUIkitBundle\\ContaoManager\\Plugin"
   }
 }
