@@ -21,20 +21,9 @@
     ]
   },
   "require": {
-    "oomphinc/composer-installers-extender": "^1.1",
     "npm-asset/uikit": "^3.0"
   },
   "extra": {
-    "installer-types": [
-      "bower-asset",
-      "npm-asset"
-    ],
-    "installer-paths": {
-      "assets/{$vendor}/{$name}/": [
-        "type:bower-asset",
-        "type:npm-asset"
-      ]
-    },
     "contao-manager-plugin": "Reluem\\ContaoUIkitBundle\\ContaoManager\\Plugin"
   }
 }
