@@ -31,7 +31,7 @@
       "npm-asset"
     ],
     "installer-paths": {
-      "public/assets/{$vendor}/{$name}/": [
+      "assets/{$vendor}/{$name}/": [
         "type:bower-asset",
         "type:npm-asset"
       ]
