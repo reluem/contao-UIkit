@@ -11,7 +11,7 @@
                           method="<?= $this->method ?>"
                           enctype="<?= $this->enctype ?>"<?= $this->attributes ?><?= $this->novalidate ?>>
                         <div class="formbody">
-                            <?php if ($this->method != 'get'): ?>
+                            <?php if ($this->method !== 'get'): ?>
                                 <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formSubmit ?>">
                                 <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
                                 <?php if ($this->maxFileSize): ?>
