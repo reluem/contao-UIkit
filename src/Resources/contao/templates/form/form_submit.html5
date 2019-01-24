@@ -7,6 +7,6 @@
            alt="<?= StringUtil::specialchars($this->slabel) ?>"<?= $this->getattributes() ?>>
 <?php else: ?>
     <button type="submit" id="ctrl_<?= $this->id ?>"
-            class="submit uk-button uk-button-default <?= $this->class; ?>"<?= $this->getattributes() ?>><?= $this->slabel ?></button>
+            class="submit uk-button uk-button-primary <?= $this->class; ?>"<?= $this->getattributes() ?>><?= $this->slabel ?></button>
 <?php endif; ?>
 <?php $this->endblock(); ?>
