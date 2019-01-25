@@ -1,0 +1,103 @@
+<?php
+    /**
+     * Contao Open Source CMS
+     *
+     * Copyright (c) 2005-2019 Leo Feyer
+     *
+     * @author    reluem
+     * @license   GNU/LGPL
+     * @copyright reluem 2019
+     */
+    
+    use Contao\CoreBundle\DataContainer\PaletteManipulator;
+    
+    
+    /**
+     *
+     * UIKit Columnset Integration
+     *
+     **/
+    $GLOBALS['TL_DCA']['tl_form_field']['fields']['fsc_type']['eval']['submitOnChange'] = true;
+    $GLOBALS['TL_DCA']['tl_form_field']['fields']['fsc_equalize']['eval'] ['submitOnChange'] = true;
+    
+    
+    /**
+     *
+     * UIKit Container Class Integrations
+     *
+     **/
+    
+    $GLOBALS['TL_DCA']['tl_form_field']['config']['onload_callback'][] = function () {
+        foreach ($GLOBALS['TL_DCA']['tl_form_field']['palettes'] as $key => $palette) {
+            
+            // if valid palette string
+            if (\is_string($palette)) {
+                
+                //  add uk-background classes to DCA
+                PaletteManipulator::create()
+                    ->addLegend('UIkit_legend', array('template_legend', 'expert_legend'),
+                        PaletteManipulator::POSITION_BEFORE)
+                    ->addField('UIkit_background', 'UIkit_legend',
+                        PaletteManipulator::POSITION_APPEND)
+                    ->applyToPalette($key, 'tl_form_field');
+                
+                //  if palette contains sc_type (Subcolumns), add uk-container classes to DCA & remove default color field
+                if ($key === 'formcolstart') {
+                    
+                    PaletteManipulator::create()
+                        ->addField(array('UIkit_section'),
+                            'UIkit_legend',
+                            PaletteManipulator::POSITION_APPEND)
+                        ->applyToPalette($key, 'tl_form_field');
+                    unset($GLOBALS['TL_DCA']['tl_form_field']['fields']['fsc_color'], $GLOBALS['TL_DCA']['tl_form_field']['fields']['fsc_gapuse']);
+                    
+                }
+            }
+        }
+    };
+    
+    $GLOBALS['TL_DCA']['tl_form_field']['subpalettes']['fsc_equalize'] = 'UIkit_valign';
+    $GLOBALS['TL_DCA']['tl_form_field']['palettes']['__selector__'][] = 'fsc_equalize';
+    
+    $GLOBALS['TL_DCA']['tl_form_field']['fields']['UIkit_background'] =
+        [
+            'label' => &$GLOBALS['TL_LANG']['tl_form_field']['UIkit_background'],
+            'inputType' => 'select',
+            'default' => 'default',
+            'options' => [
+                'default',
+                'muted',
+                'primary',
+                'secondary',
+            ],
+            'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
+            'sql' => "varchar(64) NOT NULL default ''",
+        ];
+    
+    
+    $GLOBALS['TL_DCA']['tl_form_field']['fields']['UIkit_section'] =
+        [
+            'label' => &$GLOBALS['TL_LANG']['tl_form_field']['UIkit_section'],
+            'inputType' => 'select',
+            'default' => 'uk-section',
+            'options' => [
+                'uk-section',
+                'uk-section uk-section-small',
+                'uk-section uk-section-large',
+                'uk-section uk-section-xlarge',
+            ],
+            'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
+            'sql' => "varchar(64) NOT NULL default ''",
+        ];
+    
+    $GLOBALS['TL_DCA']['tl_form_field']['fields']['UIkit_valign'] =
+        [
+            'label' => &$GLOBALS['TL_LANG']['tl_form_field']['UIkit_valign'],
+            'default' => 0,
+            'exclude' => true,
+            'inputType' => 'checkbox',
+            'eval' => ['tl_class' => 'w50'],
+            'sql' => "char(1) NOT NULL default ''",
+        ];
+    
+    
