@@ -1,7 +1,6 @@
 <?php
     
     use Contao\CoreBundle\DataContainer\PaletteManipulator;
-    use reluem\Subcolumns;
     
     
     /**
@@ -9,10 +8,6 @@
      * UIKit Columnset Integration
      *
      **/
-    
-    $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] =
-        array(Subcolumns::class, 'appendColumnsetIdToPalette');
-    
     
     $GLOBALS['TL_DCA']['tl_content']['fields']['sc_type']['eval']['submitOnChange'] = true;
     $GLOBALS['TL_DCA']['tl_content']['fields']['sc_equalize']['eval'] ['submitOnChange'] = true;
