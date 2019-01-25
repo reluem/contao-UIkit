@@ -15,6 +15,7 @@
     
     
     $GLOBALS['TL_DCA']['tl_content']['fields']['sc_type']['eval']['submitOnChange'] = true;
+    $GLOBALS['TL_DCA']['tl_content']['fields']['sc_equalize']['eval'] ['submitOnChange'] = true;
     
     
     /**
@@ -42,7 +43,7 @@
                     
                     
                     PaletteManipulator::create()
-                        ->addField(array('UIkit_section', 'UIkit_valign', 'expand_UIkit_container'),
+                        ->addField(array('UIkit_section', 'expand_UIkit_container'),
                             'UIkit_legend',
                             PaletteManipulator::POSITION_APPEND)
                         ->applyToPalette($key, 'tl_content');
@@ -53,9 +54,10 @@
             }
         }
     };
-    
+    $GLOBALS['TL_DCA']['tl_content']['subpalettes']['sc_equalize'] = 'UIkit_valign';
     $GLOBALS['TL_DCA']['tl_content']['subpalettes']['expand_UIkit_container'] = 'UIkit_container';
     $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'expand_UIkit_container';
+    $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'sc_equalize';
     $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_background'] =
         [
             'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_background'],
