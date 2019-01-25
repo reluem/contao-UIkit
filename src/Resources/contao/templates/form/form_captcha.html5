@@ -28,7 +28,7 @@
             <label for="ctrl_<?= $this->id ?>_hp">Do not fill in this field</label>
             <input type="text" name="<?= $this->name ?>_name" id="ctrl_<?= $this->id ?>_hp" value="">
         </div>
-        <script deferred>
+        <script>
             document.getElementById('ctrl_<?= $this->id ?>').parentNode.parentNode.style.display = 'none';
             document.getElementById('ctrl_<?= $this->id ?>').value = '<?= $this->getSum() ?>';
         </script>
