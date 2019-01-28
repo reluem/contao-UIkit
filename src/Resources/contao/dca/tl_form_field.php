@@ -70,7 +70,7 @@
                 'primary',
                 'secondary',
             ],
-            'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
+            'eval' => ['tl_class' => 'w50 wizard'],
             'sql' => "varchar(64) NOT NULL default ''",
         ];
     

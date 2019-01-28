@@ -1,0 +1,5 @@
+<div class="<?= $this->prefix ?> explanation<?php if ($this->class) {
+    echo ' ' . $this->class;
+} ?> uk-tile uk-tile-<?= ($this->UIkit_background ?: 'default'); ?> uk-padding-small">
+    <?= $this->generate() ?>
+</div>

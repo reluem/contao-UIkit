@@ -27,7 +27,6 @@
          */
         public function extendCssClasses($objTemplate)
         {
-            
             // Columnset
             if ($objTemplate->sc_type > 0) {
                 
@@ -44,7 +43,6 @@
                 if ($objTemplate->expand_UIkit_container) {
                     $objTemplate->class .= ' uk-width-viewport';
                     $objTemplate->container = $objTemplate->UIkit_container;
-                    
                 }
                 
                 // columns valign
@@ -74,18 +72,6 @@
                 unset($GLOBALS['TL_JAVASCRIPT'][$key]);
             }
         }
-
-
-//        /**
-//         * manipulate the given form to add advanced css to the existing css class
-//         */
-//        public function extendFormCssClasses(Widget $objWidget, $strForm, $arrForm)
-//        {
-//            if (isset($objTemplate->UIkit_background) && $objTemplate->UIkit_background != '') {
-//                $objWidget->class .= "uk-tile uk-tile-" . $objWidget->UIkit_background . ' uk - tile - small ' . $objWidget->class;
-//                return $objWidget;
-//            }
-//        }
-    
     }
+
     

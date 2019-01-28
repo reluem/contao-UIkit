@@ -1,6 +1,6 @@
 <div class="<?= $this->prefix ?><?php if ($this->class) {
     echo ' ' . $this->class;
-} ?> uk-margin">
+} ?> uk-tile uk-tile-<?= ($this->UIkit_background ?: 'default'); ?> uk-padding-small">
     
     <?php $this->block('label'); ?>
     <?php $this->endblock(); ?>

@@ -1,6 +1,7 @@
 <?php
     
     use reluem\generatePageHook;
+    use reluem\UIkitFormClassesHook;
     use reluem\UIkitheroImage;
     use Haste\Util\Debug;
     use reluem\UIkitlinkTeaser;
@@ -10,6 +11,7 @@
     $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = UIkitNavbar::class;
     $GLOBALS['TL_CTE']['media']['heroimage'] = UIkitheroImage::class;
     $GLOBALS['TL_CTE']['links']['linkteaser'] = UIkitlinkTeaser::class;
+    $GLOBALS['TL_FFL']['formcolstart'] = UIkitFormClassesHook::class;
     
     
     /**
@@ -54,7 +56,6 @@
     
     $GLOBALS['TL_HOOKS']['parseTemplate'][] = array(UIkitclassesHook::class, 'extendCssClasses');
     $GLOBALS['TL_HOOKS']['generatePage'][] = array(generatePageHook::class, 'assetDelivery');
-    
     
     /**
      * JS Inclusion
