@@ -1,7 +1,7 @@
 <!-- indexer::stop -->
 <?php $img = $this->picture['img']; ?>
 <section
-        class="uk-width-viewport uk-background-cover uk-flex uk-flex-center uk-flex-middle <?= $this->UIkit_inverse; ?> <?= $this->class ?> <?= $img['class'] ?>" <?= $this->cssID ?>
+        class="uk-width-viewport uk-background-cover uk-background-fixed uk-flex uk-flex-center uk-flex-middle <?= $this->UIkit_inverse; ?> <?= $this->class ?> <?= $img['class'] ?>" <?= $this->cssID ?>
         uk-height-viewport="<?= $this->UIkit_viewportHeight; ?>"
         data-src="<?= $img['src'] ?>" <?php if ($img['srcset'] !== $img['src']) {
     echo ' data-srcset="' . $img['srcset'] . '"';
