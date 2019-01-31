@@ -198,8 +198,19 @@
      *
      */
     
-    $GLOBALS['TL_DCA']['tl_content']['palettes']['heroimage'] = 'name,type,headline;{image_legend:hide},addImage;{text_legend},text;{UIkit_button_legend},addUIkit_button;{hero_image_legend}, UIkit_viewportHeight,UIkit_inverse;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+    $GLOBALS['TL_DCA']['tl_content']['subpalettes']['addUIkit_viewportHeight'] = 'UIkit_viewportHeight';
     
+    $GLOBALS['TL_DCA']['tl_content']['palettes']['heroimage'] = 'name,type,headline;{image_legend:hide},addImage;{text_legend},text;{UIkit_button_legend},addUIkit_button;{hero_image_legend}, addUIkit_viewportHeight,UIkit_inverse;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+    
+    $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'addUIkit_viewportHeight';
+    
+    $GLOBALS['TL_DCA']['tl_content']['fields']['addUIkit_viewportHeight'] = [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['addUIkit_viewportHeight'],
+        'exclude' => true,
+        'inputType' => 'checkbox',
+        'eval' => ['submitOnChange' => true],
+        'sql' => "char(1) NOT NULL default ''",
+    ];
     
     $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_viewportHeight'] = [
         'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_viewportHeight'],
