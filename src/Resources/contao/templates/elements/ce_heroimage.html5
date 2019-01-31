@@ -1,6 +1,5 @@
 <!-- indexer::stop -->
 <?php $img = $this->picture['img']; ?>
-<?php dump($this->UIkit_height); ?>
 <section
         class="uk-width-viewport <?= $this->UIkit_height; ?> uk-background-cover uk-background-fixed uk-flex uk-flex-center uk-flex-middle <?= $this->UIkit_inverse; ?> <?= $this->class ?> <?= $img['class'] ?>" <?= $this->cssID ?>
         <?php if ($this->UIkit_height === 'uk-height-viewport'): ?>uk-height-viewport=" <?= $this->UIkit_viewportHeight; ?>"<?php endif; ?>
