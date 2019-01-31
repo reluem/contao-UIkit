@@ -33,8 +33,8 @@
     $GLOBALS['TL_LANG']['tl_content']['UIkit_viewportHeight']['1'] = 'Viewport-Höhe des Bereichs eingeben, z.B. <em>offset-top: true; min-height: 400</em>';
     $GLOBALS['TL_LANG']['tl_content']['UIkit_inverse']['0'] = 'Farbschema';
     $GLOBALS['TL_LANG']['tl_content']['UIkit_inverse']['1'] = 'Farbschema (hell/dunkel) des Bereichs auswählen';
-    $GLOBALS['TL_LANG']['tl_content']['addUIkit_viewportHeight']['0'] = 'Viewport Höhe hinzufügen';
-    $GLOBALS['TL_LANG']['tl_content']['addUIkit_viewportHeight']['1'] = 'Das Element über die gesamte Höhe des Bildschirms anzeigen.';
+    $GLOBALS['TL_LANG']['tl_content']['UIkit_height']['0'] = 'Höhe';
+    $GLOBALS['TL_LANG']['tl_content']['UIkit_height']['1'] = 'Höhe des Elements festlegen.';
     
     /**
      *  Button
