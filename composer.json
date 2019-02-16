@@ -1,6 +1,7 @@
 {
-  "name": "reluem/contao-UIkit",
+  "name": "reluem/contao-uikit",
   "type": "contao-bundle",
+  "description": "A contao bundle to integrate the uikit framework.",
   "authors": [
     {
       "name": "Lucas Rech",
@@ -21,7 +22,7 @@
     ]
   },
   "require": {
-    "npm-asset/uikit": "^3.0"
+    "npm-asset/uikit": "~3.0"
   },
   "extra": {
     "contao-manager-plugin": "Reluem\\ContaoUIkitBundle\\ContaoManager\\Plugin"
