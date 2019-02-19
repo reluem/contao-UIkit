@@ -1,5 +1,5 @@
-<fieldset class="uk-fieldset <?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>">
+<fieldset class="uk-fieldset <?php if ($this->class): ?> <?= $this->class ?><?php endif; ?> uk-margin">
     
     <?php if ($this->label): ?>
-    <legend class="uk-legend uk-tile uk-tile-<?= ($this->UIkit_background ?: 'default'); ?> uk-padding-small"><?= $this->label ?></legend>
+    <legend class="uk-legend"><?= $this->label ?></legend>
 <?php endif; ?>
