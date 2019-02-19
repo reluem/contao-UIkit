@@ -69,12 +69,10 @@
         [
             'label' => &$GLOBALS['TL_LANG']['tl_form_field']['UIkit_section'],
             'inputType' => 'select',
-            'default' => 'uk-section',
             'options' => [
-                'uk-section',
-                'uk-section uk-section-small',
-                'uk-section uk-section-large',
-                'uk-section uk-section-xlarge',
+                'uk-padding',
+                'uk-padding-small',
+                'uk-padding-large',
             ],
             'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
             'sql' => "varchar(64) NOT NULL default ''",
