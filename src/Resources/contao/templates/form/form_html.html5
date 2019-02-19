@@ -1,5 +1,1 @@
-<div class="<?= $this->prefix ?> explanation<?php if ($this->class) {
-    echo ' ' . $this->class;
-} ?> uk-margin">
-    <?= $this->html ?>
-</div>
+<?= $this->html ?>
