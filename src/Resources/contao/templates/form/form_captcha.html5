@@ -33,5 +33,5 @@
             document.getElementById('ctrl_<?= $this->id ?>').value = '<?= $this->getSum() ?>';
         </script>
     <?php endif ?>
+    <?php $this->endblock(); ?>
 </div>
-<?php $this->endblock(); ?>
