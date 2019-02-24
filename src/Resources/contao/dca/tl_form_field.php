@@ -27,24 +27,15 @@
      *
      **/
     
-    $GLOBALS['TL_DCA']['tl_form_field']['config']['onload_callback'][] = function () {
-        foreach ($GLOBALS['TL_DCA']['tl_form_field']['palettes'] as $key => $palette) {
-            
-            // if valid palette string
-            if (\is_string($palette) && $key === 'formcolstart') {
-                
-                PaletteManipulator::create()
+     PaletteManipulator::create()
                     ->addLegend('UIkit_legend', array('template_legend', 'expert_legend'),
                         PaletteManipulator::POSITION_BEFORE)
                     ->addField(array('UIkit_background', 'UIkit_section'),
                         'UIkit_legend',
                         PaletteManipulator::POSITION_APPEND)
-                    ->applyToPalette($key, 'tl_form_field');
+                    ->applyToPalette('formcolstart', 'tl_form_field');
                 unset($GLOBALS['TL_DCA']['tl_form_field']['fields']['fsc_color'], $GLOBALS['TL_DCA']['tl_form_field']['fields']['fsc_gapuse']);
-                
-            }
-        }
-    };
+        
     
     $GLOBALS['TL_DCA']['tl_form_field']['subpalettes']['fsc_equalize'] = 'UIkit_valign';
     $GLOBALS['TL_DCA']['tl_form_field']['palettes']['__selector__'][] = 'fsc_equalize';
