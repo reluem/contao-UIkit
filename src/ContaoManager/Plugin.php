@@ -1,13 +1,19 @@
 <?php
-    
-    namespace Reluem\ContaoUIkitBundle\ContaoManager;
-    
-    use Reluem\ContaoUIkitBundle\ContaoUIkitBundle;
-    use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
+
+/*
+ * This file is part of contao/uikit.
+ * (c) Lucas Rech
+ * @license LGPL-3.0-or-later
+ */
+
+namespace Reluem\ContaoUIkitBundle\ContaoManager;
+
+use Contao\CoreBundle\ContaoCoreBundle;
     use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
+    use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
     use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-    use Contao\CoreBundle\ContaoCoreBundle;
-    
+    use Reluem\ContaoUIkitBundle\ContaoUIkitBundle;
+
     /**
      * @see https://github.com/contao/manager-plugin/blob/master/src/Bundle/BundlePluginInterface.php Code in GitHub
      */
@@ -19,7 +25,7 @@
                 BundleConfig::create(ContaoUIkitBundle::class)
                     ->setLoadAfter([
                         ContaoCoreBundle::class,
-                        'Subcolumns'
+                        'Subcolumns',
                     ]),
             ];
         }
