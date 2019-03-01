@@ -14,19 +14,25 @@ add to root composer.json
         "type:npm-asset"
       ]
     }
-  }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
   ```
 
-For manual installation, copy the folder to system/modules, clear the cache(!) and run contao/install tool.
-
-UIkit assets can be included automatically by adding the following to the project composer.json:
+UIkit assets are loaded automatically with this snippet in the composer.json of this module. 
+You need to have the above mentioned requirements in your root json in order to load the ressources from npm-asset.
 ```
 "require" : {
     "npm-asset/uikit": "~3.0"
-    }
+    },
+
 ```
 
-Then create a custom .scss theme in your files, that you reference in the page layout.
+Next, create a custom .scss theme in your files, that you reference in the page layout.
 ```
 // 1. Your custom variables and variable overwrites.
 // e.g. $global-primary-background: rgb(0, 48, 135);
