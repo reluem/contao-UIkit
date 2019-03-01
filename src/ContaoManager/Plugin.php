@@ -6,13 +6,13 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Reluem\ContaoUIkitBundle\ContaoManager;
+namespace reluem\ContaoUIkitBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Reluem\ContaoUIkitBundle\ContaoUIkitBundle;
+use reluem\ContaoUIkitBundle\ContaoUIkitBundle;
 
 /**
  * @see https://github.com/contao/manager-plugin/blob/master/src/Bundle/BundlePluginInterface.php Code in GitHub
