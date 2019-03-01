@@ -8,12 +8,7 @@
      */
     declare(strict_types = 1);
     
-    namespace reluem;
-    
-    
-    use Contao\Module;
-    use Contao\ModuleModel;
-    use Contao\StringUtil;
+    namespace reluem\ContaoUIkitBundle;
     
     
     /**
@@ -21,7 +16,7 @@
      *
      * @author Leo Feyer <https://github.com/leofeyer>
      */
-    class UIkitNavbar extends Module
+    class UIkitNavbar extends \Module
     {
         /**
          * Template
@@ -37,7 +32,7 @@
          */
         protected function compile()
         {
-            $config = StringUtil::deserialize($this->UIkit_navbarModules, true);
+            $config = \StringUtil::deserialize($this->UIkit_navbarModules, true);
             $modules = [];
             $models = $this->prefetchModules($config);
             // find unique values for floating and make array
@@ -66,7 +61,7 @@
          *
          * @return array
          */
-        protected function generateModule($module, \ModuleModel $model)
+        protected function generateModule($module, \ModuleModel $model): array
         {
             return [
                 'type' => 'module',
@@ -85,7 +80,7 @@
          *
          * @return array
          */
-        protected function extractModuleIds($config)
+        protected function extractModuleIds($config): array
         {
             $ids = [];
             foreach ($config as $index => $module) {
@@ -104,14 +99,14 @@
          *
          * @return array
          */
-        protected function prefetchModules($config)
+        protected function prefetchModules($config): array
         {
             $ids = $this->extractModuleIds($config);
             $models = [];
             if ($ids) {
                 // prefetch modules, so only 1 query is required
                 $ids = implode(',', $ids);
-                $collection = ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
+                $collection = \ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
                 if ($collection) {
                     while ($collection->next()) {
                         $model = $collection->current();

@@ -7,7 +7,8 @@
      * @license LGPL-3.0+
      */
     
-    namespace reluem;
+    declare(strict_types = 1);
+    namespace reluem\ContaoUIkitBundle;
     
     /**
      * Front end content element "ce_linkteaser".

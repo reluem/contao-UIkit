@@ -6,15 +6,12 @@
      * Time: 18:08
      */
     
-    namespace reluem;
+    namespace reluem\ContaoUIkitBundle;
     
-    use Contao\PageModel;
-    use Contao\LayoutModel;
-    use Contao\PageRegular;
     
     class generatePageHook
     {
-        public function assetDelivery(PageModel $objPage, LayoutModel $objLayout, PageRegular $objPageRegular)
+        public function assetDelivery(\PageModel $objPage, \LayoutModel $objLayout, \PageRegular $objPageRegular)
         {
             if ('FE' === TL_MODE) {
                 

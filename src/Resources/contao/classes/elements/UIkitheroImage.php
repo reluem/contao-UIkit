@@ -6,8 +6,8 @@
      *
      * @license LGPL-3.0+
      */
-    
-    namespace reluem;
+    declare(strict_types = 1);
+    namespace reluem\ContaoUIkitBundle;
     
     /**
      * Front end content element "ce_heroimage".
@@ -36,7 +36,7 @@
             $this->Template->text = \StringUtil::encodeEmail($this->text);
             $this->Template->addImage = false;
             // Add an image
-            if ($this->addImage && $this->singleSRC != '') {
+            if ($this->addImage && $this->singleSRC !== '') {
                 $objModel = \FilesModel::findByUuid($this->singleSRC);
                 if ($objModel !== null && is_file(TL_ROOT . '/' . $objModel->path)) {
                     $this->singleSRC = $objModel->path;

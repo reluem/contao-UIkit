@@ -5,10 +5,9 @@
      * Date: 21.02.18
      * Time: 18:08
      */
+    declare(strict_types = 1);
+    namespace reluem\ContaoUIkitBundle;
     
-    namespace reluem;
-    
-    use Contao\Controller;
     
     /**
      * Add css fields to content elements.
@@ -20,7 +19,7 @@
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    class UIkitclassesHook extends Controller
+    class UIkitClassesHook extends \Controller
     {
         /**
          * extends CSS classes for UIkit
@@ -74,4 +73,3 @@
         }
     }
 
-    
