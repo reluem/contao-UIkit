@@ -22,7 +22,11 @@
     ]
   },
   "require": {
-    "npm-asset/uikit": "~3.0"
+    "npm-asset/uikit": "~3.0",
+    "codefog/contao-haste": "^4.20",
+    "felixpfeiffer/subcolumns": "3.1.7",
+
+
   },
   "extra": {
     "contao-manager-plugin": "Reluem\\ContaoUIkitBundle\\ContaoManager\\Plugin"
