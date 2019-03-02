@@ -26,7 +26,7 @@
     "symfony/framework-bundle": "^3.3",
     "npm-asset/uikit": "~3.0",
     "codefog/contao-haste": "^4.20",
-    "felixpfeiffer/subcolumns": "3.1.7"
+    "felixpfeiffer/subcolumns": "^3.1"
   },
   "conflict": {
     "contao/core": "*",
