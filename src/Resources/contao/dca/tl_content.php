@@ -149,9 +149,9 @@
                         'decodeEntities' => true,
                         'maxlength' => 255,
                         'dcaPicker' => true,
-                        'addWizardClass' => false,
-                        'tl_class' => 'w50',
+                        'tl_class' => 'w50 wizard',
                     ],
+                    'sql' => "varchar(255) NOT NULL default ''",
                 
                 ],
                 'linkTitle' => [
