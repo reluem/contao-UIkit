@@ -1,34 +1,30 @@
 <?php
-    /**
-     * Contao Open Source CMS
-     *
-     * Copyright (c) 2005-2015 Leo Feyer
-     *
-     * @license LGPL-3.0+
-     */
-    declare(strict_types = 1);
-    
-    namespace Reluem\ContaoUIkitBundle\FrontendModule;
-    
-    
-    /**
-     * Front end module "Navbar" for UIkit
-     *
-     * @author Leo Feyer <https://github.com/leofeyer>
-     */
+    declare(strict_types=1);
+
+/*
+ * This file is part of contao/uikit.
+ * (c) Lucas Rech
+ * @license LGPL-3.0-or-later
+ */
+
+namespace Reluem\ContaoUIkitBundle\FrontendModule;
+
+/**
+ * Front end module "Navbar" for UIkit.
+ *
+ * @author Leo Feyer <https://github.com/leofeyer>
+ */
     class UIkitNavbar extends \Module
     {
         /**
-         * Template
+         * Template.
+         *
          * @var string
          */
         protected $strTemplate = 'mod_UIkitnavbar';
-        
-        
+
         /**
          * Compile the navbar.
-         *
-         * @return void
          */
         protected function compile()
         {
@@ -42,22 +38,22 @@
                 foreach ($config as $module) {
                     if ($module['floating'] === $floating) {
                         $id = $module['module'];
-                        if ($id !== '' && array_key_exists($id, $models) && !$module['inactive']) {
+                        if ('' !== $id && \array_key_exists($id, $models) && !$module['inactive']) {
                             $parts[] = $this->generateModule($module, $models[$id]);
                         }
                     }
                 }
                 $modules[$floating] = $parts;
             }
-            
+
             $this->Template->modules = $modules;
         }
-        
+
         /**
          * Generate a frontend module.
          *
-         * @param array $module Module configuration.
-         * @param \ModuleModel $model Module model.
+         * @param array        $module module configuration
+         * @param \ModuleModel $model  module model
          *
          * @return array
          */
@@ -71,12 +67,11 @@
                 'floating' => $module['floating'],
             ];
         }
-        
-        
+
         /**
          * Extract module ids from navbar config.
          *
-         * @param array $config The navbar config.
+         * @param array $config the navbar config
          *
          * @return array
          */
@@ -87,15 +82,16 @@
                 if ($module['inactive']) {
                     continue;
                 }
-                $ids[$index] = (int)$module['module'];
+                $ids[$index] = (int) $module['module'];
             }
+
             return $ids;
         }
-        
+
         /**
          * Prefetch modules.
          *
-         * @param array $config Navbar config.
+         * @param array $config navbar config
          *
          * @return array
          */
@@ -106,7 +102,7 @@
             if ($ids) {
                 // prefetch modules, so only 1 query is required
                 $ids = implode(',', $ids);
-                $collection = \ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
+                $collection = \ModuleModel::findBy(['tl_module.id IN('.$ids.')'], []);
                 if ($collection) {
                     while ($collection->next()) {
                         $model = $collection->current();
@@ -114,6 +110,7 @@
                     }
                 }
             }
+
             return $models;
         }
     }
