@@ -51,7 +51,7 @@
      */
     
     $GLOBALS['TL_HOOKS']['parseTemplate'][] = array(
-        Reluem\ContaoUIkitBundle\EventListener\UIkitFormClassesHook::class,
+        Reluem\ContaoUIkitBundle\EventListener\UIkitClassesHook::class,
         'extendCssClasses',
     );
     $GLOBALS['TL_HOOKS']['generatePage'][] = array(

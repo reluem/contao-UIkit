@@ -17,7 +17,9 @@
      */
     declare(strict_types = 1);
     namespace Reluem\ContaoUIkitBundle\EventListener;
-    
+
+
+    use FelixPfeiffer\Subcolumns;
     
 
     /**
@@ -30,7 +32,7 @@
      *
      * @SuppressWarnings(PHPMD.Superglobals)
      */
-    class UIkitFormClassesHook extends FormColStart
+    class UIkitFormClassesHook extends Subcolumns\FormColStart
     {
         /**
          * extends CSS classes for UIkit
