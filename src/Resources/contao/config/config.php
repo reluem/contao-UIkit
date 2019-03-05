@@ -1,18 +1,13 @@
 <?php
     
-    use Reluem\ContaoUIkitBundle\UIkitClassesHook;
-    use Reluem\ContaoUIkitBundle\UIkitheroImage;
-    use Reluem\ContaoUIkitBundle\generatePageHook;
-    use Reluem\ContaoUIkitBundle\UIkitFormClassesHook;
-    use Reluem\ContaoUIkitBundle\UIkitlinkTeaser;
-    use Reluem\ContaoUIkitBundle\UIkitNavbar;
     use Haste\Util\Debug;
     
     
-    $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = UIkitNavbar::class;
-    $GLOBALS['TL_CTE']['media']['heroimage'] = UIkitheroImage::class;
-    $GLOBALS['TL_CTE']['links']['linkteaser'] = UIkitlinkTeaser::class;
-    $GLOBALS['TL_FFL']['formcolstart'] = UIkitFormClassesHook::class;
+    $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = Reluem\ContaoUIkitBundle\FrontendModule\UIkitNavbar::class;
+    $GLOBALS['TL_CTE']['media']['heroimage'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitheroImage::class;
+    $GLOBALS['TL_CTE']['links']['linkteaser'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitlinkTeaser::class;
+    $GLOBALS['TL_FFL']['formcolstart'] = Reluem\ContaoUIkitBundle\EventListener\UIkitFormClassesHook::class;
+    
     
     
     /**
@@ -55,8 +50,14 @@
      * Hooks
      */
     
-    $GLOBALS['TL_HOOKS']['parseTemplate'][] = array(UIkitClassesHook::class, 'extendCssClasses');
-    $GLOBALS['TL_HOOKS']['generatePage'][] = array(generatePageHook::class, 'assetDelivery');
+    $GLOBALS['TL_HOOKS']['parseTemplate'][] = array(
+        Reluem\ContaoUIkitBundle\EventListener\UIkitFormClassesHook::class,
+        'extendCssClasses',
+    );
+    $GLOBALS['TL_HOOKS']['generatePage'][] = array(
+        \Reluem\ContaoUIkitBundle\EventListener\generatePageHook::class,
+        'assetDelivery',
+    );
     
     /**
      * JS Inclusion

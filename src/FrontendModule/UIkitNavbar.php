@@ -8,7 +8,7 @@
      */
     declare(strict_types = 1);
     
-    namespace Reluem\ContaoUIkitBundle;
+    namespace Reluem\ContaoUIkitBundle\FrontendModule;
     
     
     /**

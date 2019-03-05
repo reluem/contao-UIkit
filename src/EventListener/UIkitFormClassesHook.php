@@ -15,8 +15,8 @@
      * Date: 21.02.18
      * Time: 18:08
      */
-    
-    namespace Reluem\ContaoUIkitBundle;
+    declare(strict_types = 1);
+    namespace Reluem\ContaoUIkitBundle\EventListener;
     
     
 
