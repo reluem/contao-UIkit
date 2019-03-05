@@ -15,8 +15,8 @@ use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Reluem\ContaoUIkitBundle\ContaoUIkitBundle;
 
 /**
- * @see https://github.com/contao/manager-plugin/blob/master/src/Bundle/BundlePluginInterface.php Code in GitHub
- */
+     * @see https://github.com/contao/manager-plugin/blob/master/src/Bundle/BundlePluginInterface.php Code in GitHub
+     */
     class Plugin implements BundlePluginInterface
     {
         public function getBundles(ParserInterface $parser)

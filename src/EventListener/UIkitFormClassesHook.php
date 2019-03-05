@@ -13,14 +13,14 @@ namespace Reluem\ContaoUIkitBundle\EventListener;
 use FelixPfeiffer\Subcolumns;
 
 /**
- * Add css fields to form elements.
- *
- *
- * @param \DataContainer $dataContainer the data container driver
- *
- *
- * @SuppressWarnings(PHPMD.Superglobals)
- */
+     * Add css fields to form elements.
+     *
+     *
+     * @param \DataContainer $dataContainer the data container driver
+     *
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
     class UIkitFormClassesHook extends Subcolumns\FormColStart
     {
         /**
@@ -34,7 +34,7 @@ use FelixPfeiffer\Subcolumns;
                 if (!$GLOBALS['TL_SUBCL'][$this->strSet]['files']['css']) {
                     $this->Template = new \BackendTemplate('be_subcolumns');
                     $this->Template->colsetTitle = '### COLUMNSET START '.$this->fsc_type.' <strong>'.$this->fsc_name.'</strong> ###';
-                    $this->Template->hint = sprintf($GLOBALS['TL_LANG']['MSC']['contentAfter'],
+                    $this->Template->hint = \sprintf($GLOBALS['TL_LANG']['MSC']['contentAfter'],
                         $GLOBALS['TL_LANG']['MSC']['sc_first']);
 
                     return $this->Template->parse();
@@ -55,7 +55,7 @@ use FelixPfeiffer\Subcolumns;
                 $this->Template = new \BackendTemplate('be_subcolumns');
                 $this->Template->colsetTitle = '### COLUMNSET START '.$this->fsc_type.' <strong>'.$this->fsc_name.'</strong> ###';
                 $this->Template->visualSet = $strMiniset;
-                $this->Template->hint = sprintf($GLOBALS['TL_LANG']['MSC']['contentAfter'],
+                $this->Template->hint = \sprintf($GLOBALS['TL_LANG']['MSC']['contentAfter'],
                     $GLOBALS['TL_LANG']['MSC']['sc_first']);
 
                 return $this->Template->parse();

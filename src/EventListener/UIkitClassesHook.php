@@ -11,14 +11,14 @@
 namespace Reluem\ContaoUIkitBundle\EventListener;
 
 /**
- * Add css fields to content elements.
- *
- *
- * @param \DataContainer $dataContainer the data container driver
- *
- *
- * @SuppressWarnings(PHPMD.Superglobals)
- */
+     * Add css fields to content elements.
+     *
+     *
+     * @param \DataContainer $dataContainer the data container driver
+     *
+     *
+     * @SuppressWarnings(PHPMD.Superglobals)
+     */
     class UIkitClassesHook extends \Controller
     {
         /**
@@ -64,7 +64,7 @@ namespace Reluem\ContaoUIkitBundle\EventListener;
 
             // remove tabcontrol JS
             $needle = 'system/modules/tabcontrol/assets/js/moo_tabcontrol.js';
-            if (TL_MODE === 'FE' && $objTemplate->titles && false !== ($key = array_search($needle,
+            if (TL_MODE === 'FE' && $objTemplate->titles && false !== ($key = \array_search($needle,
                     $GLOBALS['TL_JAVASCRIPT'], true))) {
                 unset($GLOBALS['TL_JAVASCRIPT'][$key]);
             }
