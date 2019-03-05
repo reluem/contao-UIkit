@@ -8,7 +8,7 @@
      */
     
     declare(strict_types = 1);
-    namespace reluem\ContaoUIkitBundle;
+    namespace Reluem\ContaoUIkitBundle;
     
     /**
      * Front end content element "ce_linkteaser".

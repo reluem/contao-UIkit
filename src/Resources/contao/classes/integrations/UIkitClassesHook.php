@@ -6,7 +6,7 @@
      * Time: 18:08
      */
     declare(strict_types = 1);
-    namespace reluem\ContaoUIkitBundle;
+    namespace Reluem\ContaoUIkitBundle;
     
     
     /**

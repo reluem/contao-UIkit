@@ -6,10 +6,10 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace reluem\ContaoUIkitBundle\Tests;
+namespace Reluem\ContaoUIkitBundle\Tests;
 
 use PHPUnit\Framework\TestCase;
-use reluem\ContaoUIkitBundle\ContaoUIkitBundle;
+use Reluem\ContaoUIkitBundle\ContaoUIkitBundle;
 
 class ContaoUIkitBundleTest extends TestCase
 {

@@ -6,7 +6,7 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace reluem\ContaoUIkitBundle;
+namespace Reluem\ContaoUIkitBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

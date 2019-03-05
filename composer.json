@@ -11,12 +11,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "reluem\\ContaoUIkitBundle\\": "src/"
+      "Reluem\\ContaoUIkitBundle\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "reluem\\ContaoUIkitBundle\\Tests\\": "tests/"
+      "Reluem\\ContaoUIkitBundle\\Tests\\": "tests/"
     }
   },
   "require": {
@@ -49,7 +49,7 @@
     }
   ],
   "extra": {
-    "contao-manager-plugin": "reluem\\ContaoUIkitBundle\\ContaoManager\\Plugin",
+    "contao-manager-plugin": "Reluem\\ContaoUIkitBundle\\ContaoManager\\Plugin",
     "installer-types": [
       "npm-asset"
     ],

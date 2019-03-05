@@ -16,7 +16,7 @@
      * Time: 18:08
      */
     
-    namespace reluem\ContaoUIkitBundle;
+    namespace Reluem\ContaoUIkitBundle;
     
     
 

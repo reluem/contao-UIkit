@@ -1,11 +1,11 @@
 <?php
     
-    use reluem\ContaoUIkitBundle\UIkitClassesHook;
-    use reluem\ContaoUIkitBundle\UIkitheroImage;
-    use reluem\ContaoUIkitBundle\generatePageHook;
-    use reluem\ContaoUIkitBundle\UIkitFormClassesHook;
-    use reluem\ContaoUIkitBundle\UIkitlinkTeaser;
-    use reluem\ContaoUIkitBundle\UIkitNavbar;
+    use Reluem\ContaoUIkitBundle\UIkitClassesHook;
+    use Reluem\ContaoUIkitBundle\UIkitheroImage;
+    use Reluem\ContaoUIkitBundle\generatePageHook;
+    use Reluem\ContaoUIkitBundle\UIkitFormClassesHook;
+    use Reluem\ContaoUIkitBundle\UIkitlinkTeaser;
+    use Reluem\ContaoUIkitBundle\UIkitNavbar;
     use Haste\Util\Debug;
     
     
