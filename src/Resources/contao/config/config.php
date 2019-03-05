@@ -1,16 +1,21 @@
 <?php
-    
+
+/*
+ * Contao UIkit Bundle
+ * @copyright  Copyright (c) 2018-2019, reluem
+ * @author     reluem
+ * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
+ * @link       http://github.com/reluem/contao-uikit
+ */
+
     use Haste\Util\Debug;
-    
-    
+
     $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = Reluem\ContaoUIkitBundle\FrontendModule\UIkitNavbar::class;
     $GLOBALS['TL_CTE']['media']['heroimage'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitheroImage::class;
     $GLOBALS['TL_CTE']['links']['linkteaser'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitlinkTeaser::class;
     $GLOBALS['TL_FFL']['formcolstart'] = Reluem\ContaoUIkitBundle\EventListener\UIkitFormClassesHook::class;
-    
-    
-    
-    /**
+
+    /*
      * Grid definition
      */
     $GLOBALS['TL_SUBCL']['contao-UIkit'] = [
@@ -38,34 +43,30 @@
             '50x50 (mobil)' => [['uk-width-1-2'], ['uk-width-1-2']],
             '50x50' => [['uk-width-1-2@m'], ['uk-width-1-2@m']],
             '33x66 (mobil)' => [['uk-width-1-3'], ['uk-width-2-3']],
-            '33x66' => [['uk-width-1-3@m'], ['uk-width-2-3@m'],],
-            '66x33' => [['uk-width-2-3@m'], ['uk-width-1-3@m'],],
-            '100%' => [['uk-width-1-1'],],
-        
+            '33x66' => [['uk-width-1-3@m'], ['uk-width-2-3@m']],
+            '66x33' => [['uk-width-2-3@m'], ['uk-width-1-3@m']],
+            '100%' => [['uk-width-1-1']],
         ],
     ];
-    
-    
-    /**
+
+    /*
      * Hooks
      */
-    
-    $GLOBALS['TL_HOOKS']['parseTemplate'][] = array(
+
+    $GLOBALS['TL_HOOKS']['parseTemplate'][] = [
         Reluem\ContaoUIkitBundle\EventListener\UIkitClassesHook::class,
         'extendCssClasses',
-    );
-    $GLOBALS['TL_HOOKS']['generatePage'][] = array(
+    ];
+    $GLOBALS['TL_HOOKS']['generatePage'][] = [
         \Reluem\ContaoUIkitBundle\EventListener\generatePageHook::class,
         'assetDelivery',
-    );
-    
-    /**
+    ];
+
+    /*
      * JS Inclusion
      */
-    
+
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('assets/uikit/dist/js/uikit.min.js');
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('assets/uikit/dist/js/uikit-icons.min.js');
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('files/theme/js/ajaxReload.min.js');
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('bundles/contaouikit/js/width-viewport.min.js');
-
-    

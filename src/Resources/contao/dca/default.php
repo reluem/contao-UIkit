@@ -1,15 +1,14 @@
 <?php
+
+/*
+ * Contao UIkit Bundle
+ * @copyright  Copyright (c) 2018-2019, reluem
+ * @author     reluem
+ * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
+ * @link       http://github.com/reluem/contao-uikit
+ */    
+
     /**
-     * Contao Open Source CMS
-     *
-     * Copyright (c) 2005-2018 Leo Feyer
-     *
-     * @author    reluem
-     * @license   GNU/LGPL
-     * @copyright reluem 2018
+     * Content Elements.
      */
-    
-    /**
-     * Content Elements
-     */
-    $GLOBALS['TL_LANG']['CTE']['heroimage'] = array('HeroImage');
+    $GLOBALS['TL_LANG']['CTE']['heroimage'] = ['HeroImage'];

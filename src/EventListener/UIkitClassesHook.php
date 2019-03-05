@@ -3,9 +3,11 @@
     declare(strict_types=1);
 
 /*
- * This file is part of contao/uikit.
- * (c) Lucas Rech
- * @license LGPL-3.0-or-later
+ * Contao UIkit Bundle
+ * @copyright  Copyright (c) 2018-2019, reluem
+ * @author     reluem
+ * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
+ * @link       http://github.com/reluem/contao-uikit
  */
 
 namespace Reluem\ContaoUIkitBundle\EventListener;
@@ -31,12 +33,12 @@ namespace Reluem\ContaoUIkitBundle\EventListener;
             // Columnset
             if ($objTemplate->sc_type > 0) {
                 if (!empty($objTemplate->UIkit_section)) {
-                    $objTemplate->class .= ' '.$objTemplate->UIkit_section;
+                    $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
                 }
 
                 // columnset section padding (size)
                 if (!empty($objTemplate->UIkit_section)) {
-                    $objTemplate->class .= ' '.$objTemplate->UIkit_section;
+                    $objTemplate->class .= ' ' . $objTemplate->UIkit_section;
                 }
 
                 // columnset container breakout
@@ -55,16 +57,16 @@ namespace Reluem\ContaoUIkitBundle\EventListener;
             if (!empty($objTemplate->UIkit_background)) {
                 // add section with background for columnset if container expand
                 if ($objTemplate->sc_type > 0) {
-                    $objTemplate->class .= ' uk-background-'.$objTemplate->UIkit_background;
+                    $objTemplate->class .= ' uk-background-' . $objTemplate->UIkit_background;
                 } // add background to content elements
                 else {
-                    $objTemplate->class .= ' uk-tile uk-tile-'.$objTemplate->UIkit_background.' uk-padding-small';
+                    $objTemplate->class .= ' uk-tile uk-tile-' . $objTemplate->UIkit_background . ' uk-padding-small';
                 }
             }
 
             // remove tabcontrol JS
             $needle = 'system/modules/tabcontrol/assets/js/moo_tabcontrol.js';
-            if (TL_MODE === 'FE' && $objTemplate->titles && false !== ($key = \array_search($needle,
+            if (TL_MODE === 'FE' && $objTemplate->titles && false !== ($key = array_search($needle,
                     $GLOBALS['TL_JAVASCRIPT'], true))) {
                 unset($GLOBALS['TL_JAVASCRIPT'][$key]);
             }

@@ -3,9 +3,11 @@
     declare(strict_types=1);
 
 /*
- * This file is part of contao/uikit.
- * (c) Lucas Rech
- * @license LGPL-3.0-or-later
+ * Contao UIkit Bundle
+ * @copyright  Copyright (c) 2018-2019, reluem
+ * @author     reluem
+ * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
+ * @link       http://github.com/reluem/contao-uikit
  */
 
 namespace Reluem\ContaoUIkitBundle\EventListener;
@@ -33,8 +35,8 @@ use FelixPfeiffer\Subcolumns;
             if (TL_MODE === 'BE') {
                 if (!$GLOBALS['TL_SUBCL'][$this->strSet]['files']['css']) {
                     $this->Template = new \BackendTemplate('be_subcolumns');
-                    $this->Template->colsetTitle = '### COLUMNSET START '.$this->fsc_type.' <strong>'.$this->fsc_name.'</strong> ###';
-                    $this->Template->hint = \sprintf($GLOBALS['TL_LANG']['MSC']['contentAfter'],
+                    $this->Template->colsetTitle = '### COLUMNSET START ' . $this->fsc_type . ' <strong>' . $this->fsc_name . '</strong> ###';
+                    $this->Template->hint = sprintf($GLOBALS['TL_LANG']['MSC']['contentAfter'],
                         $GLOBALS['TL_LANG']['MSC']['sc_first']);
 
                     return $this->Template->parse();
@@ -45,17 +47,17 @@ use FelixPfeiffer\Subcolumns;
                 $blnInside = $GLOBALS['TL_SUBCL'][$this->strSet]['inside'];
                 $strMiniset = '';
                 if ($GLOBALS['TL_CSS']['subcolumns_set']) {
-                    $strMiniset = '<div class="colsetexample '.$strSCClass.'">';
+                    $strMiniset = '<div class="colsetexample ' . $strSCClass . '">';
                     foreach ($arrColset as $i => $value) {
                         $arrPresentColset = $value;
-                        $strMiniset .= '<div class="'.$arrPresentColset[0].(0 === $i ? ' active' : '').'">'.($blnInside ? '<div class="'.$arrPresentColset[1].'">' : '').($i + 1).($blnInside ? '</div>' : '').'</div>';
+                        $strMiniset .= '<div class="' . $arrPresentColset[0] . (0 === $i ? ' active' : '') . '">' . ($blnInside ? '<div class="' . $arrPresentColset[1] . '">' : '') . ($i + 1) . ($blnInside ? '</div>' : '') . '</div>';
                     }
                     $strMiniset .= '</div>';
                 }
                 $this->Template = new \BackendTemplate('be_subcolumns');
-                $this->Template->colsetTitle = '### COLUMNSET START '.$this->fsc_type.' <strong>'.$this->fsc_name.'</strong> ###';
+                $this->Template->colsetTitle = '### COLUMNSET START ' . $this->fsc_type . ' <strong>' . $this->fsc_name . '</strong> ###';
                 $this->Template->visualSet = $strMiniset;
-                $this->Template->hint = \sprintf($GLOBALS['TL_LANG']['MSC']['contentAfter'],
+                $this->Template->hint = sprintf($GLOBALS['TL_LANG']['MSC']['contentAfter'],
                     $GLOBALS['TL_LANG']['MSC']['sc_first']);
 
                 return $this->Template->parse();
@@ -67,14 +69,14 @@ use FelixPfeiffer\Subcolumns;
             // columns valign
             $scclass = ($this->UIkit_valign ? ' uk-flex uk-flex-middle' : '');
 
-            $equalize = $GLOBALS['TL_SUBCL'][$this->strSet]['equalize'] && $this->fsc_equalize ? $GLOBALS['TL_SUBCL'][$this->strSet]['equalize'].' ' : '';
+            $equalize = $GLOBALS['TL_SUBCL'][$this->strSet]['equalize'] && $this->fsc_equalize ? $GLOBALS['TL_SUBCL'][$this->strSet]['equalize'] . ' ' : '';
 
             //$container = unserialize($this->sc_container);
-            $objTemplate->column = $container[0][0].' col_1'.' first';
+            $objTemplate->column = $container[0][0] . ' col_1' . ' first';
             $objTemplate->inside = $container[0][1];
             $objTemplate->useInside = $GLOBALS['TL_SUBCL'][$this->strSet]['inside'];
-            $objTemplate->scclass = $equalize.$GLOBALS['TL_SUBCL'][$this->strSet]['scclass'].' colcount_'.\count($container).' '.$this->strSet.' col-'.$this->fsc_type.' '.$scclass;
-            $objTemplate->class = $this->UIkit_section.($this->UIkit_background ? ' uk-background-'.$this->UIkit_background : '');
+            $objTemplate->scclass = $equalize . $GLOBALS['TL_SUBCL'][$this->strSet]['scclass'] . ' colcount_' . \count($container) . ' ' . $this->strSet . ' col-' . $this->fsc_type . ' ' . $scclass;
+            $objTemplate->class = $this->UIkit_section . ($this->UIkit_background ? ' uk-background-' . $this->UIkit_background : '');
 
             return $objTemplate->parse();
         }

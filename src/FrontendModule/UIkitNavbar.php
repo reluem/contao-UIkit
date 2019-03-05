@@ -2,9 +2,11 @@
     declare(strict_types=1);
 
 /*
- * This file is part of contao/uikit.
- * (c) Lucas Rech
- * @license LGPL-3.0-or-later
+ * Contao UIkit Bundle
+ * @copyright  Copyright (c) 2018-2019, reluem
+ * @author     reluem
+ * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
+ * @link       http://github.com/reluem/contao-uikit
  */
 
 namespace Reluem\ContaoUIkitBundle\FrontendModule;
@@ -32,7 +34,7 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
             $modules = [];
             $models = $this->prefetchModules($config);
             // find unique values for floating and make array
-            foreach (\array_unique(\array_column($config, 'floating')) as $floating) {
+            foreach (array_unique(array_column($config, 'floating')) as $floating) {
                 $parts = [];
                 // add modules to floating part
                 foreach ($config as $module) {
@@ -101,8 +103,8 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
             $models = [];
             if ($ids) {
                 // prefetch modules, so only 1 query is required
-                $ids = \implode(',', $ids);
-                $collection = \ModuleModel::findBy(['tl_module.id IN('.$ids.')'], []);
+                $ids = implode(',', $ids);
+                $collection = \ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
                 if ($collection) {
                     while ($collection->next()) {
                         $model = $collection->current();

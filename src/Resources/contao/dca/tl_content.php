@@ -1,50 +1,50 @@
 <?php
-    
+
+/*
+ * Contao UIkit Bundle
+ * @copyright  Copyright (c) 2018-2019, reluem
+ * @author     reluem
+ * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
+ * @link       http://github.com/reluem/contao-uikit
+ */
+
     use Contao\CoreBundle\DataContainer\PaletteManipulator;
-    
-    
-    /**
+
+    /*
      *
      * UIKit Columnset Integration
      *
      **/
-    
+
     $GLOBALS['TL_DCA']['tl_content']['fields']['sc_type']['eval']['submitOnChange'] = true;
-    $GLOBALS['TL_DCA']['tl_content']['fields']['sc_equalize']['eval'] ['submitOnChange'] = true;
-    
-    
-    /**
+    $GLOBALS['TL_DCA']['tl_content']['fields']['sc_equalize']['eval']['submitOnChange'] = true;
+
+    /*
      *
      * UIKit Container Class Integration
      *
      **/
-    
+
     $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = function () {
         foreach ($GLOBALS['TL_DCA']['tl_content']['palettes'] as $key => $palette) {
-            
             // if valid palette string
-            if (\is_string($palette)) {
-                
+            if (is_string($palette)) {
                 //  add uk-background classes to DCA
                 PaletteManipulator::create()
-                    ->addLegend('UIkit_legend', array('template_legend', 'protected_legend'),
+                    ->addLegend('UIkit_legend', ['template_legend', 'protected_legend'],
                         PaletteManipulator::POSITION_BEFORE)
                     ->addField('UIkit_background', 'UIkit_legend',
                         PaletteManipulator::POSITION_APPEND)
                     ->applyToPalette($key, 'tl_content');
-                
+
                 //  if palette contains sc_type (Subcolumns), add uk-container classes to DCA & remove default color field
-                if ($key === 'colsetStart') {
-                    
-                    
+                if ('colsetStart' === $key) {
                     PaletteManipulator::create()
-                        ->addField(array('UIkit_section', 'expand_UIkit_container'),
+                        ->addField(['UIkit_section', 'expand_UIkit_container'],
                             'UIkit_legend',
                             PaletteManipulator::POSITION_APPEND)
                         ->applyToPalette($key, 'tl_content');
                     unset($GLOBALS['TL_DCA']['tl_content']['fields']['sc_color']);
-                    
-                    
                 }
             }
         }
@@ -67,7 +67,7 @@
             'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
             'sql' => "varchar(64) NOT NULL default ''",
         ];
-    
+
     $GLOBALS['TL_DCA']['tl_content']['fields']['expand_UIkit_container'] = [
         'label' => &$GLOBALS['TL_LANG']['tl_content']['expand_UIkit_container'],
         'exclude' => true,
@@ -75,7 +75,7 @@
         'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 m12 clr'],
         'sql' => "char(1) NOT NULL default ''",
     ];
-    
+
     $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_container'] =
         [
             'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_container'],
@@ -89,8 +89,7 @@
             'eval' => ['tl_class' => 'w50', 'includeBlankOption' => true],
             'sql' => "varchar(64) NOT NULL default ''",
         ];
-    
-    
+
     $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_section'] =
         [
             'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_section'],
@@ -105,7 +104,7 @@
             'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
             'sql' => "varchar(64) NOT NULL default ''",
         ];
-    
+
     $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_valign'] =
         [
             'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_valign'],
@@ -115,15 +114,14 @@
             'eval' => ['tl_class' => 'w50 m12'],
             'sql' => "char(1) NOT NULL default ''",
         ];
-    
-    
-    /**
+
+    /*
      *  UIkit Button
      */
-    
+
     $GLOBALS['TL_DCA']['tl_content']['subpalettes']['addUIkit_button'] = 'UIkit_button';
     $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'addUIkit_button';
-    
+
     $GLOBALS['TL_DCA']['tl_content']['fields']['addUIkit_button'] = [
         'label' => &$GLOBALS['TL_LANG']['tl_content']['addUIkit_button'],
         'exclude' => true,
@@ -131,7 +129,7 @@
         'eval' => ['submitOnChange' => true],
         'sql' => "char(1) NOT NULL default ''",
     ];
-    
+
     $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_button'] = [
         'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_button'],
         'exclude' => true,
@@ -177,8 +175,7 @@
                     'inputType' => 'text',
                     'eval' => ['tl_class' => 'w50'],
                 ],
-                'target' =>
-                    [
+                'target' => [
                         'label' => &$GLOBALS['TL_LANG']['MSC']['target'],
                         'exclude' => true,
                         'inputType' => 'checkbox',
@@ -189,20 +186,18 @@
         ],
         'sql' => 'blob NULL',
     ];
-    
-    /**
+
+    /*
      *
      * UIkit HeroImage
      *
      */
-    
+
     $GLOBALS['TL_DCA']['tl_content']['subpalettes']['UIkit_height_uk-height-viewport'] = 'UIkit_viewportHeight';
     $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'UIkit_height';
-    
-    
+
     $GLOBALS['TL_DCA']['tl_content']['palettes']['heroimage'] = 'name,type,headline;{image_legend:hide},addImage;{text_legend},text;{UIkit_button_legend},addUIkit_button;{hero_image_legend}, UIkit_height,UIkit_inverse;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
-    
-    
+
     $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_height'] = [
         'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_height'],
         'exclude' => true,
@@ -211,7 +206,7 @@
         'eval' => ['submitOnChange' => true, 'tl_class' => 'w50', 'includeBlankOption' => true],
         'sql' => "varchar(255) NOT NULL default ''",
     ];
-    
+
     $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_viewportHeight'] = [
         'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_viewportHeight'],
         'exclude' => true,
@@ -230,12 +225,11 @@
         'eval' => ['tl_class' => 'w50 wizard'],
         'sql' => "varchar(255) NOT NULL default ''",
     ];
-    
-    
-    /**
+
+    /*
      *
      * LinkTeaser
      *
      */
-    
+
     $GLOBALS['TL_DCA']['tl_content']['palettes']['linkteaser'] = '{type_legend},type,headline;{text_legend},text;{link_legend},url,target,linkTitle,titleText;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
