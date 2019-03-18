@@ -63,12 +63,5 @@ namespace Reluem\ContaoUIkitBundle\EventListener;
                     $objTemplate->class .= ' uk-tile uk-tile-' . $objTemplate->UIkit_background . ' uk-padding-small';
                 }
             }
-
-            // remove tabcontrol JS
-            $needle = 'system/modules/tabcontrol/assets/js/moo_tabcontrol.js';
-            if (TL_MODE === 'FE' && $objTemplate->titles && false !== ($key = array_search($needle,
-                    $GLOBALS['TL_JAVASCRIPT'], true))) {
-                unset($GLOBALS['TL_JAVASCRIPT'][$key]);
-            }
         }
     }

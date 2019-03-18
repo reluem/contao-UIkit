@@ -8,7 +8,7 @@
  * @link       http://github.com/reluem/contao-uikit
  */
 
-    use Haste\Util\Debug;
+use Haste\Util\Debug;
 
     $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = Reluem\ContaoUIkitBundle\FrontendModule\UIkitNavbar::class;
     $GLOBALS['TL_CTE']['media']['heroimage'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitheroImage::class;
@@ -60,6 +60,11 @@
     $GLOBALS['TL_HOOKS']['generatePage'][] = [
         \Reluem\ContaoUIkitBundle\EventListener\generatePageHook::class,
         'assetDelivery',
+    ];
+
+    $GLOBALS['TL_HOOKS']['tabControlJS'][] = [
+        \Reluem\ContaoUIkitBundle\EventListener\TabControlHook::class,
+        'TabControlJS',
     ];
 
     /*
