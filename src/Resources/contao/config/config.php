@@ -12,6 +12,7 @@ use Haste\Util\Debug;
 
     $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = Reluem\ContaoUIkitBundle\FrontendModule\UIkitNavbar::class;
     $GLOBALS['TL_CTE']['media']['heroimage'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitheroImage::class;
+    $GLOBALS['TL_CTE']['media']['countdown'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitcountdown::class;
     $GLOBALS['TL_CTE']['links']['linkteaser'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitlinkTeaser::class;
     $GLOBALS['TL_FFL']['formcolstart'] = Reluem\ContaoUIkitBundle\EventListener\UIkitFormClassesHook::class;
 

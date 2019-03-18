@@ -7,8 +7,8 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
  * @link       http://github.com/reluem/contao-uikit
  */
-    
-    $GLOBALS['TL_LANG']['tl_content']['sc_color'][0] = 'Hintergrund-Farbe';
+
+$GLOBALS['TL_LANG']['tl_content']['sc_color'][0] = 'Hintergrund-Farbe';
     $GLOBALS['TL_LANG']['tl_content']['sc_color'][1] = 'Dem Bereich eine Hintergrundfarbe zuweisen.';
 
     $GLOBALS['TL_LANG']['tl_content']['UIkit_background'][0] = 'Hintergrund-Farbe';
@@ -47,3 +47,10 @@
     $GLOBALS['TL_LANG']['tl_content']['addUIkit_button'] = ['Button', 'Dem Element einen Button anfügen.'];
     $GLOBALS['TL_LANG']['tl_content']['tooltip']['0'] = 'Tooltip';
     $GLOBALS['TL_LANG']['tl_content']['tooltip']['1'] = 'Einen Tooltip zur Erklärung angeben, der beim Hover über dem Button angezeigt wird.';
+
+    /*
+     *  Countdown
+     */
+    $GLOBALS['TL_LANG']['tl_content']['countdown_legend'] = 'Countdown';
+    $GLOBALS['TL_LANG']['tl_content']['countdownDate'] = ['Datum und Uhrzeit', 'Das Datum und die Uhrzeit für den Countdown'];
+    $GLOBALS['TL_LANG']['tl_content']['showLabels'] = ['Labels anzeigen', 'Labels für das Element anzeigen'];

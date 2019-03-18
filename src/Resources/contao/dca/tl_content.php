@@ -8,7 +8,7 @@
  * @link       http://github.com/reluem/contao-uikit
  */
 
-    use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
     /*
      *
@@ -176,11 +176,11 @@
                     'eval' => ['tl_class' => 'w50'],
                 ],
                 'target' => [
-                        'label' => &$GLOBALS['TL_LANG']['MSC']['target'],
-                        'exclude' => true,
-                        'inputType' => 'checkbox',
-                        'eval' => ['tl_class' => 'w50 m12'],
-                    ],
+                    'label' => &$GLOBALS['TL_LANG']['MSC']['target'],
+                    'exclude' => true,
+                    'inputType' => 'checkbox',
+                    'eval' => ['tl_class' => 'w50 m12'],
+                ],
             ],
             'maxCount' => 2,
         ],
@@ -233,3 +233,26 @@
      */
 
     $GLOBALS['TL_DCA']['tl_content']['palettes']['linkteaser'] = '{type_legend},type,headline;{text_legend},text;{link_legend},url,target,linkTitle,titleText;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+
+    /*
+     *
+     * Countdown
+     *
+     */
+    $GLOBALS['TL_DCA']['tl_content']['palettes']['countdown'] = '{type_legend},type,headline;{countdown_legend},countdownDate, showLabels;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+
+    $GLOBALS['TL_DCA']['tl_content']['fields']['countdownDate'] = [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['countdownDate'],
+        'exclude' => true,
+        'inputType' => 'text',
+        'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
+        'sql' => "varchar(10) NOT NULL default ''",
+    ];
+
+    $GLOBALS['TL_DCA']['tl_content']['fields']['showLabels'] = [
+        'label' => &$GLOBALS['TL_LANG']['tl_content']['showLabels'],
+        'exclude' => true,
+        'inputType' => 'checkbox',
+        'eval' => ['tl_class' => 'w50 m12'],
+        'sql' => "char(1) NOT NULL default ''",
+    ];

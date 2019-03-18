@@ -1,0 +1,36 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<div class="uk-grid-small uk-child-width-auto uk-flex-center" uk-grid uk-countdown="date: <?= $this->countdownDate; ?>">
+    <div>
+        <div class="uk-countdown-number uk-countdown-days"></div>
+        <?php if ($this->showLabels): ?>
+            <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Tage</div>
+        <?php endif; ?>
+    </div>
+    <div class="uk-countdown-separator">:</div>
+    <div>
+        <div class="uk-countdown-number uk-countdown-hours"></div>
+        <?php if ($this->showLabels): ?>
+            <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Stunden</div>
+        <?php endif; ?>
+    </div>
+    <div class="uk-countdown-separator">:</div>
+    <div>
+        <div class="uk-countdown-number uk-countdown-minutes"></div>
+        <?php if ($this->showLabels): ?>
+            <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Minuten</div>
+        <?php endif; ?>
+    </div>
+    <div class="uk-countdown-separator">:</div>
+    <div>
+        <div class="uk-countdown-number uk-countdown-seconds"></div>
+        <?php if ($this->showLabels): ?>
+            <div class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s">Sekunden</div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<?php $this->endblock(); ?>
+
