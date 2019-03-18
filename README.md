@@ -32,8 +32,10 @@ You need to have the above mentioned requirements in your root json in order to 
 
 ```
 
-Next, create a custom .scss theme in your files, that you reference in the page layout.
+Next, create a custom .scss theme in your files directory, that you reference in your Contao page layout. Your custom file will overwrite the variables of the UIkit core which enables you to change e.g. colors or fonts.
 ```
+### Your Custom SCSS file
+
 // 1. Your custom variables and variable overwrites.
 // e.g. $global-primary-background: rgb(0, 48, 135);
 
@@ -47,6 +49,17 @@ Next, create a custom .scss theme in your files, that you reference in the page 
 @import "../../assets/uikit/src/scss/uikit-theme.scss";
 
 // 5. Other Custom SCSS
+```
 
+##Features:
 
-    
+####Modules
+* Navbar with Module Picker
+* Columnset
+* Fancy Alerts for newsletter subscriptions
+###Content Elements
+* Hero Image
+* Link Teaser with Buttons
+
+###Others
+* JS automatically moved to end of DOM
