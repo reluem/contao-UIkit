@@ -8,5 +8,7 @@
  * @link       http://github.com/reluem/contao-uikit
  */
     
-    $GLOBALS['TL_LANG']['CTE']['linkteaser'] = ['Link-Teaser'];
-    $GLOBALS['TL_LANG']['CTE']['heroimage'] = ['Hero-Image'];
+    $GLOBALS['TL_LANG']['CTE']['linkteaser'] = ['Link-Teaser', 'Eine Teaser-Box für Inhalte oder Downloads'];
+    $GLOBALS['TL_LANG']['CTE']['heroimage'] = ['Hero-Image', 'Eine Box mit Hintergrundbild und optionalen Buttons'];
+    $GLOBALS['TL_LANG']['CTE']['countdown'] = ['Countdown', 'Erzeugt ein Countdown-Element für ein bestimmtes Datum.'];
+
