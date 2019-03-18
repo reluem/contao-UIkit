@@ -51,15 +51,15 @@ Next, create a custom .scss theme in your files directory, that you reference in
 // 5. Other Custom SCSS
 ```
 
-##Features:
+## Features:
 
-####Modules
+#### Modules
 * Navbar with Module Picker
 * Columnset
 * Fancy Alerts for newsletter subscriptions
-###Content Elements
+### Content Elements
 * Hero Image
 * Link Teaser with Buttons
 
-###Others
+### Others
 * JS automatically moved to end of DOM
