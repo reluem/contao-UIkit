@@ -8,5 +8,5 @@
     <div
             uk-slider="<?php echo $this->sliderDelay ? 'autoplay: true; autoplay-interval:' . $this->sliderDelay . ';' : ''; ?> <?php echo $this->sliderContinuous ? '' : 'finite: true;'; ?> <?php echo $this->sliderStartSlide ? 'index: ' . $this->sliderStartSlide : ''; ?>">
 
-        <ul class="uk-slider-items uk-grid uk-grid-match uk-margin">uk-slider>
+        <ul class="uk-slider-items uk-grid uk-grid-match uk-margin" uk-slider>
 
