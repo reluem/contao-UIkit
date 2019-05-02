@@ -24,7 +24,7 @@
     "contao/core-bundle": "^4.4",
     "menatwork/contao-multicolumnwizard-bundle": "^3.4.0",
     "symfony/framework-bundle": "^3.3",
-    "npm-asset/uikit": "~3.0",
+    "npm-asset/uikit": "^3.1",
     "codefog/contao-haste": "^4.20",
     "felixpfeiffer/subcolumns": "^3.1"
   },
