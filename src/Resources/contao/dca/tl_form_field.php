@@ -7,7 +7,7 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
  * @link       http://github.com/reluem/contao-uikit
  */
-    
+
     use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
     /*

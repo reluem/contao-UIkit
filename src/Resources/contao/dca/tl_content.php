@@ -10,7 +10,7 @@
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
-    /*
+/*
      *
      * UIKit Columnset Integration
      *
