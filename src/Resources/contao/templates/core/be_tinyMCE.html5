@@ -41,7 +41,7 @@
                     },
                     file_browser_callback_types: <?= json_encode($this->fileBrowserTypes) ?>,
                     content_css: '<?= TL_ASSETS_URL ?>assets/uikit/dist/css/uikit.css<?= '?' . time() ?>',
-                    plugins: 'autosave charmap code fullscreen image importcss link lists paste searchreplace stripnbsp tabfocus table visualblocks visualchars',
+                    plugins: 'autosave charmap code fullscreen image importcss link lists paste searchreplace stripnbsp tabfocus table visualblocks visualchars definitionlist',
                     browser_spellcheck: true,
                     tabfocus_elements: ':prev,:next',
                     importcss_groups: [
@@ -78,9 +78,9 @@
                                 {title: 'Text | Small', selector: '*', classes: 'uk-text-small'}]
                         }
                     ],
-                    extended_valid_elements: 'q[cite|class|title],b,i,b/strong,i/em,article,section,hgroup,figure,figcaption',
+                    extended_valid_elements: 'q[cite|class|title],b,i,b/strong,i/em,article,section,hgroup,figure,figcaption, div[uk-*],span[uk-*]',
                     menubar: 'file edit insert view format table',
-                    toolbar: 'link unlink | image | formatselect | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | code'
+                    toolbar: 'link unlink | image | formatselect | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | ToggleDefinitionList ToggleDefinitionItem  | code'
                 });
             }, 0);
         </script>
