@@ -62,4 +62,5 @@ Next, create a custom .scss theme in your files directory, that you reference in
 * Link Teaser with Buttons
 
 ### Others
+* Icon Inserttag
 * JS automatically moved to end of DOM
