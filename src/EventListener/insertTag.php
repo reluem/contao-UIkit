@@ -43,7 +43,7 @@
             }
             \System::getContainer()
                 ->get('monolog.logger.contao')
-                ->log(LogLevel::WARNING, 'Invalid icon inserttag: ' . $strTag . 'on page ID', array(
+                ->log(LogLevel::WARNING, 'Invalid icon inserttag: ' . $strTag , array(
                     'contao' => new ContaoContext(__CLASS__ . '::' . __FUNCTION__, TL_GENERAL
                     ),
                 ));
