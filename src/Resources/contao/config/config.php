@@ -2,7 +2,7 @@
 
 /*
  * Contao UIkit Bundle
- * @copyright  Copyright (c) 2018-2019, reluem
+ * @copyright  Copyright (c) 2018-2020, reluem
  * @author     reluem
  * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
  * @link       http://github.com/reluem/contao-uikit
@@ -10,7 +10,7 @@
 
 use Haste\Util\Debug;
 
-$GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = Reluem\ContaoUIkitBundle\FrontendModule\UIkitNavbar::class;
+    $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = Reluem\ContaoUIkitBundle\FrontendModule\UIkitNavbar::class;
     $GLOBALS['TL_CTE']['media']['heroimage'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitheroImage::class;
     $GLOBALS['TL_CTE']['media']['countdown'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitcountdown::class;
     $GLOBALS['TL_CTE']['links']['linkteaser'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitlinkTeaser::class;
@@ -66,6 +66,11 @@ $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = Reluem\ContaoUIkitBundle\
     $GLOBALS['TL_HOOKS']['tabControlJS'][] = [
         \Reluem\ContaoUIkitBundle\EventListener\TabControlHook::class,
         'TabControlJS',
+    ];
+
+    $GLOBALS['TL_HOOKS']['replaceInsertTags'][] = [
+        \Reluem\ContaoUIkitBundle\EventListener\insertTag::class,
+        'iconInsertTag',
     ];
 
     /*

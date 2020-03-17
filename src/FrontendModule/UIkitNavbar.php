@@ -1,9 +1,10 @@
 <?php
+
     declare(strict_types=1);
 
 /*
  * Contao UIkit Bundle
- * @copyright  Copyright (c) 2018-2019, reluem
+ * @copyright  Copyright (c) 2018-2020, reluem
  * @author     reluem
  * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
  * @link       http://github.com/reluem/contao-uikit
@@ -11,7 +12,7 @@
 
 namespace Reluem\ContaoUIkitBundle\FrontendModule;
 
-/**
+    /**
      * Front end module "Navbar" for UIkit.
      *
      * @author Leo Feyer <https://github.com/leofeyer>
@@ -56,8 +57,6 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
          *
          * @param array        $module module configuration
          * @param \ModuleModel $model  module model
-         *
-         * @return array
          */
         protected function generateModule($module, \ModuleModel $model): array
         {
@@ -74,8 +73,6 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
          * Extract module ids from navbar config.
          *
          * @param array $config the navbar config
-         *
-         * @return array
          */
         protected function extractModuleIds($config): array
         {
@@ -94,8 +91,6 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
          * Prefetch modules.
          *
          * @param array $config navbar config
-         *
-         * @return array
          */
         protected function prefetchModules($config): array
         {
