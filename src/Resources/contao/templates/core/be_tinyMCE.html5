@@ -47,6 +47,7 @@
                     importcss_groups: [
                         {title: 'UIkit'}],
                     importcss_append: true,
+                    allow_script_urls: true,
                     formats: [
                         {
                             bold: {inline: 'b'},
