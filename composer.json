@@ -2,7 +2,7 @@
   "name": "reluem/contao-uikit",
   "license": "LGPL-3.0-or-later",
   "type": "contao-bundle",
-  "description": "A contao bundle to integrate the uikit framework.",
+  "description": "A contao bundle to integrate the UIkit framework.",
   "authors": [
     {
       "name": "Lucas Rech",
