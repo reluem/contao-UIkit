@@ -23,7 +23,7 @@
     "php": ">=7.1",
     "contao/core-bundle": "^4.4",
     "menatwork/contao-multicolumnwizard-bundle": "^3.4.0",
-    "npm-asset/uikit": "^3.1",
+    "npm-asset/uikit": "^3.5",
     "codefog/contao-haste": "^4.20",
     "felixpfeiffer/subcolumns": "^3.1"
   },
