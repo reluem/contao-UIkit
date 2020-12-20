@@ -8,8 +8,6 @@
  * @link       http://github.com/reluem/contao-uikit
  */
 
-use Contao\CoreBundle\DataContainer\PaletteManipulator;
-
 /*
      *
      * UIKit Columnset Integration
@@ -17,103 +15,7 @@ use Contao\CoreBundle\DataContainer\PaletteManipulator;
      **/
 
     $GLOBALS['TL_DCA']['tl_content']['fields']['sc_type']['eval']['submitOnChange'] = true;
-    $GLOBALS['TL_DCA']['tl_content']['fields']['sc_equalize']['eval']['submitOnChange'] = true;
-
-    /*
-     *
-     * UIKit Container Class Integration
-     *
-     **/
-
-    $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = function () {
-        foreach ($GLOBALS['TL_DCA']['tl_content']['palettes'] as $key => $palette) {
-            // if valid palette string
-            if (is_string($palette)) {
-                //  add uk-background classes to DCA
-                PaletteManipulator::create()
-                    ->addLegend('UIkit_legend', ['template_legend', 'protected_legend'],
-                        PaletteManipulator::POSITION_BEFORE)
-                    ->addField('UIkit_background', 'UIkit_legend',
-                        PaletteManipulator::POSITION_APPEND)
-                    ->applyToPalette($key, 'tl_content');
-
-                //  if palette contains sc_type (Subcolumns), add uk-container classes to DCA & remove default color field
-                if ('colsetStart' === $key) {
-                    PaletteManipulator::create()
-                        ->addField(['UIkit_section', 'expand_UIkit_container'],
-                            'UIkit_legend',
-                            PaletteManipulator::POSITION_APPEND)
-                        ->applyToPalette($key, 'tl_content');
-                    unset($GLOBALS['TL_DCA']['tl_content']['fields']['sc_color']);
-                }
-            }
-        }
-    };
-    $GLOBALS['TL_DCA']['tl_content']['subpalettes']['sc_equalize'] = 'UIkit_valign';
-    $GLOBALS['TL_DCA']['tl_content']['subpalettes']['expand_UIkit_container'] = 'UIkit_container';
-    $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'expand_UIkit_container';
-    $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'sc_equalize';
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_background'] =
-        [
-            'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_background'],
-            'inputType' => 'select',
-            'default' => 'default',
-            'options' => [
-                'default',
-                'muted',
-                'primary',
-                'secondary',
-            ],
-            'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
-            'sql' => "varchar(64) NOT NULL default ''",
-        ];
-
-    $GLOBALS['TL_DCA']['tl_content']['fields']['expand_UIkit_container'] = [
-        'label' => &$GLOBALS['TL_LANG']['tl_content']['expand_UIkit_container'],
-        'exclude' => true,
-        'inputType' => 'checkbox',
-        'eval' => ['submitOnChange' => true, 'tl_class' => 'w50 m12 clr'],
-        'sql' => "char(1) NOT NULL default ''",
-    ];
-
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_container'] =
-        [
-            'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_container'],
-            'inputType' => 'select',
-            'default' => 'uk-container',
-            'options' => [
-                'uk-container',
-                'uk-container uk-container-large',
-                'uk-container uk-container-expand',
-            ],
-            'eval' => ['tl_class' => 'w50', 'includeBlankOption' => true],
-            'sql' => "varchar(64) NOT NULL default ''",
-        ];
-
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_section'] =
-        [
-            'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_section'],
-            'inputType' => 'select',
-            'default' => 'uk-section',
-            'options' => [
-                'uk-section',
-                'uk-section uk-section-small',
-                'uk-section uk-section-large',
-                'uk-section uk-section-xlarge',
-            ],
-            'eval' => ['tl_class' => 'w50 wizard', 'includeBlankOption' => true],
-            'sql' => "varchar(64) NOT NULL default ''",
-        ];
-
-    $GLOBALS['TL_DCA']['tl_content']['fields']['UIkit_valign'] =
-        [
-            'label' => &$GLOBALS['TL_LANG']['tl_content']['UIkit_valign'],
-            'default' => 0,
-            'exclude' => true,
-            'inputType' => 'checkbox',
-            'eval' => ['tl_class' => 'w50 m12'],
-            'sql' => "char(1) NOT NULL default ''",
-        ];
+    unset($GLOBALS['TL_DCA']['tl_content']['fields']['sc_color']);
 
     /*
      *  UIkit Button

@@ -21,11 +21,11 @@
   },
   "require": {
     "php": ">=7.1",
-    "contao/core-bundle": "^4.9",
+    "contao/core-bundle": "^4.10",
     "menatwork/contao-multicolumnwizard-bundle": "^3.4.0",
     "npm-asset/uikit": "^3.5",
     "codefog/contao-haste": "^4.20",
-    "felixpfeiffer/subcolumns": "^3.1"
+    "oveleon/contao-component-style-manager": "^2.4"
   },
   "conflict": {
     "contao/core": "*",
@@ -35,11 +35,8 @@
     "contao/manager-plugin": "^2.0",
     "doctrine/doctrine-cache-bundle": "^1.3",
     "friendsofphp/php-cs-fixer": "^2.6",
-    "leofeyer/optimize-native-functions-fixer": "^1.1",
     "php-http/guzzle6-adapter": "^1.1",
-    "php-http/message-factory": "^1.0.2",
-    "phpunit/phpunit": "^5.7.26",
-    "symfony/phpunit-bridge": "^3.2"
+    "php-http/message-factory": "^1.0.2"
   },
   "repositories": [
     {

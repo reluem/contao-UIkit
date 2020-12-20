@@ -14,7 +14,6 @@ use Haste\Util\Debug;
     $GLOBALS['TL_CTE']['media']['heroimage'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitheroImage::class;
     $GLOBALS['TL_CTE']['media']['countdown'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitcountdown::class;
     $GLOBALS['TL_CTE']['links']['linkteaser'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitlinkTeaser::class;
-    $GLOBALS['TL_FFL']['formcolstart'] = Reluem\ContaoUIkitBundle\EventListener\UIkitFormClassesHook::class;
 
     /*
      * Grid definition
@@ -22,7 +21,7 @@ use Haste\Util\Debug;
     $GLOBALS['TL_SUBCL']['contao-UIkit'] = [
         'label' => 'Contao UIkit', // Label for the selectmenu
         'scclass' => 'uk-grid uk-grid-small', // Class for the wrapping container
-        'equalize' => 'uk-grid-match', // Is a equalize heights class included and what is it's name?
+        'equalize' => false, // Is a equalize heights class included and what is it's name?
         'gap' => false,
         'inside' => false, // Are inside containers used?
         /*
@@ -54,10 +53,6 @@ use Haste\Util\Debug;
      * Hooks
      */
 
-    $GLOBALS['TL_HOOKS']['parseTemplate'][] = [
-        Reluem\ContaoUIkitBundle\EventListener\UIkitClassesHook::class,
-        'extendCssClasses',
-    ];
     $GLOBALS['TL_HOOKS']['generatePage'][] = [
         \Reluem\ContaoUIkitBundle\EventListener\generatePageHook::class,
         'assetDelivery',
@@ -80,4 +75,3 @@ use Haste\Util\Debug;
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('assets/uikit/dist/js/uikit.min.js');
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('assets/uikit/dist/js/uikit-icons.min.js');
     $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('files/theme/js/ajaxReload.min.js');
-    $GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('bundles/contaouikit/js/width-viewport.min.js');

@@ -1,7 +1,0 @@
-<?php if ($this->useInside): ?>
-    </div>
-<?php endif; ?>
-</div></div>
-</div>
-</section>
-<!-- Spaltenset End //-->
