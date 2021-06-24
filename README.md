@@ -3,7 +3,7 @@
 add to root composer.json
 ```
 "require" : {
-    "oomphinc/composer-installers-extender": "^1.1"
+    "oomphinc/composer-installers-extender": "^2.0",
     },
 "extra": {
     "installer-types": [
