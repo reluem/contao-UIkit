@@ -25,7 +25,8 @@
     "menatwork/contao-multicolumnwizard-bundle": "~3.4.11",
     "npm-asset/uikit": "^3.5",
     "codefog/contao-haste": "~4.20",
-    "oveleon/contao-component-style-manager": "~2.4"
+    "oveleon/contao-component-style-manager": "~2.4",
+    "felixpfeiffer/subcolumns": "^3.1"
   },
   "conflict": {
     "contao/core": "*",
