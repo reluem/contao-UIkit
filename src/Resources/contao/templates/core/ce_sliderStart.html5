@@ -1,7 +1,7 @@
-<div class="<?= $this->class ?> uk-container uk-container-expand uk-margin-top block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
-
-    <?php if ($this->headline): ?>
-    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+<div class="<?= $this->class ?>  block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+ 
+     <?php if ($this->headline): ?>
+     <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
 <?php endif; ?>
 
 <div class="uk-position-relative uk-visible-toggle">
