@@ -15,5 +15,5 @@
             </li>
         <?php endforeach; ?>
     </ul>
-
-    <?php $this->endblock(); ?>
+</div>
+<?php $this->endblock(); ?>
