@@ -1,8 +1,8 @@
 </ul>
 </div>
 <div class="uk-light">
-   <a class="uk-position-center-left-out" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-   <a class="uk-position-center-right-out" href="#" uk-slidenav-next uk-slider-item="next"></a>
+   <a class="uk-position-center-left-out uk-visible@s" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+   <a class="uk-position-center-right-out uk-visible@s" href="#" uk-slidenav-next uk-slider-item="next"></a>
    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 </div>
 </div>
