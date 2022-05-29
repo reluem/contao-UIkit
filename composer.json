@@ -1,59 +1,55 @@
 {
-  "name": "reluem/contao-uikit",
-  "license": "LGPL-3.0-or-later",
-  "type": "contao-bundle",
-  "description": "A contao bundle to integrate the UIkit framework.",
-  "authors": [
-    {
-      "name": "Lucas Rech",
-      "email": "reluem@icloud.com"
+    "name": "reluem/contao-uikit",
+    "license": "LGPL-3.0-or-later",
+    "type": "contao-bundle",
+    "description": "A contao bundle to integrate the UIkit framework.",
+    "authors": [{
+        "name": "Lucas Rech",
+        "email": "reluem@icloud.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Reluem\\ContaoUIkitBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Reluem\\ContaoUIkitBundle\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.0",
+        "contao/core-bundle": "^4.10",
+        "menatwork/contao-multicolumnwizard-bundle": "^3.4",
+        "npm-asset/uikit": "^3.5",
+        "codefog/contao-haste": "~4.20",
+        "oveleon/contao-component-style-manager": "~2.4",
+        "felixpfeiffer/subcolumns": "^3.1"
+    },
+    "conflict": {
+        "contao/core": "*",
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0",
+        "doctrine/doctrine-cache-bundle": "^1.3",
+        "friendsofphp/php-cs-fixer": "^2.6",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message-factory": "^1.0.2"
+    },
+    "repositories": [{
+        "type": "composer",
+        "url": "https://asset-packagist.org"
+    }],
+    "extra": {
+        "contao-manager-plugin": "Reluem\\ContaoUIkitBundle\\ContaoManager\\Plugin",
+        "installer-types": [
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "assets/{$name}/": [
+                "type:npm-asset"
+            ]
+        }
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "Reluem\\ContaoUIkitBundle\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Reluem\\ContaoUIkitBundle\\Tests\\": "tests/"
-    }
-  },
-  "require": {
-    "php": "^7.0",
-    "contao/core-bundle": "^4.10",
-    "menatwork/contao-multicolumnwizard-bundle": "~3.4.11",
-    "npm-asset/uikit": "^3.5",
-    "codefog/contao-haste": "~4.20",
-    "oveleon/contao-component-style-manager": "~2.4",
-    "felixpfeiffer/subcolumns": "^3.1"
-  },
-  "conflict": {
-    "contao/core": "*",
-    "contao/manager-plugin": "<2.0 || >=3.0"
-  },
-  "require-dev": {
-    "contao/manager-plugin": "^2.0",
-    "doctrine/doctrine-cache-bundle": "^1.3",
-    "friendsofphp/php-cs-fixer": "^2.6",
-    "php-http/guzzle6-adapter": "^1.1",
-    "php-http/message-factory": "^1.0.2"
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://asset-packagist.org"
-    }
-  ],
-  "extra": {
-    "contao-manager-plugin": "Reluem\\ContaoUIkitBundle\\ContaoManager\\Plugin",
-    "installer-types": [
-      "npm-asset"
-    ],
-    "installer-paths": {
-      "assets/{$name}/": [
-        "type:npm-asset"
-      ]
-    }
-  }
 }
