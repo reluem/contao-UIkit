@@ -1,13 +1,11 @@
 </ul>
-<div class="uk-slidenav-container uk-light">
-    <a class="uk-visible@s uk-position-small uk-slidenav-large" href="#" uk-slidenav-previous
-       uk-slider-item="previous"></a>
-    <ul class="uk-slider-nav uk-dotnav uk-width-expand uk-flex-middle uk-flex-center uk-margin"></ul>
-
-    <a class=" uk-visible@s uk-position-small uk-slidenav-large" href="#" uk-slidenav-next
-       uk-slider-item="next"></a>
+</div>
+<div class="uk-light">
+   <a class="uk-position-center-left-out" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+   <a class="uk-position-center-right-out" href="#" uk-slidenav-next uk-slider-item="next"></a>
+   <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+</div>
 </div>
 
-</div>
 </div>
 </div>
