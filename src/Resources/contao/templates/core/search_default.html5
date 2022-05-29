@@ -1,35 +1,32 @@
-<div class="<?= $this->class ?>">
-    <div class="uk-margin-small uk-card uk-card-default uk-card-hover">
+<div class="<?= $this->class ?> uk-margin" uk-margin>
+    <div class="uk-card uk-card-default uk-card-hover">
         <div class="uk-grid" uk-grid>
             <div class="uk-width-expand">
                 <div class="uk-card-body">
-                    <h3 class="uk-card-title"><a href="<?= $this->url ?>"
-                                                 title="<?= $this->title ?>"><?= $this->link ?></a>
-                        <span
-                                class="uk-text-meta small">[<?= $this->relevance ?>]</span></h3>
-                    
-                    <?php if ($this->context): ?>
+                    <h3 class="uk-card-title"><a href="<?= $this->url ?>" title="<?= $this->title ?>"><?= $this->link ?></a>
+                        <span class="uk-text-meta small">[<?= $this->relevance ?>]</span>
+                    </h3>
+
+                    <?php if ($this->context) : ?>
                         <p class="context"><?= $this->context ?></p>
                     <?php endif; ?>
-                    
+
                     <?php $this->insert('uk_button', array(
                         'style' => 'uk-button-text',
                         'href' => $this->url,
                         'title' => $this->titleText,
-                        'link' => $this->more,
-                        'target' => $this->target,
-                        'rel' => $this->rel, 
+                        'link' => '<span uk-icon="arrow-right" ></span>' . $GLOBALS['TL_LANG']['MSC']['more'],
                     )); ?>
                 </div>
             </div>
-            <div class="uk-width-auto">
-                <?php if ($this->image): ?>
+            <?php if ($this->image) : ?>
+                <div class="uk-width-auto">
                     <div class="uk-card-media-right uk-cover-container">
-                        <?php $image = parse_url($this->image); ?>
-                        {{picture::<?php echo ltrim($image['path'], '/'); ?>?size=50&template=picture_default_cover}}
+                        <?php $this->insert('image', (array) $this->image) ?>
                     </div>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php endif; ?>
+
         </div>
     </div>
 </div>

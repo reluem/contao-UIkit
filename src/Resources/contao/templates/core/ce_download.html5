@@ -1,13 +1,19 @@
-<?php if ($this->UIkit_container): ?>
-    <div class="<?= $this->UIkit_container; ?>">
-<?php endif; ?>
-    <div class="<?php echo $this->class; ?> uk-padding-small">
+<?php $this->extend('block_searchable'); ?>
 
-        <p class="download-element ext-<?= $this->extension ?>">
-            <a href="<?= $this->href ?>" title="<?= $this->title ?>"><?= $this->link ?> <span
-                        class="size">(<?= $this->filesize ?>)</span></a>
-        </p>
-    </div>
-<?php if ($this->UIkit_container): ?>
-    </div>
-<?php endif; ?>
+<?php $this->block('content'); ?>
+
+<?php if ($this->previews) : ?>
+    <?php foreach ($this->previews as $preview) : ?>
+        <?php $this->insert('image', $preview->getLegacyTemplateData()) ?>
+    <?php endforeach ?>
+<?php endif ?>
+
+<?php $this->insert('uk_button', array(
+    'style' => 'uk-button-default uk-text-truncate',
+    'href' => $this->href,
+    'title' => $this->title,
+    'link' => '<span uk-icon="download"></span> ' . $this->link . ' <span class="size uk-visible@s uk-text-meta">(' . $this->filesize . ')</span>',
+)); ?>
+</div>
+
+<?php $this->endblock(); ?>
