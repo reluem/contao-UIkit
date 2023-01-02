@@ -7,6 +7,7 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
  * @link       http://github.com/reluem/contao-uikit
  */
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
 /*
      *
@@ -15,7 +16,20 @@
      **/
 
     $GLOBALS['TL_DCA']['tl_content']['fields']['sc_type']['eval']['submitOnChange'] = true;
-    unset($GLOBALS['TL_DCA']['tl_content']['fields']['sc_color']);
+    $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = function () {
+        foreach ($GLOBALS['TL_DCA']['tl_content']['palettes'] as $key => $palette) {
+            // if valid palette string
+            if (is_string($palette)) {
+                
+                //  if palette contains sc_type (Subcolumns), remove default color field
+                if ('colsetStart' === $key) {
+                    PaletteManipulator::create()
+                       ->removeField('sc_color')
+                       ->applyToPalette($key, 'tl_content');
+                }
+            }
+        }
+    };
 
     /*
      *  UIkit Button
