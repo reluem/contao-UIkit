@@ -17,7 +17,7 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
      *
      * @author Leo Feyer <https://github.com/leofeyer>
      */
-    class UIkitheroImage extends \ContentElement
+    class UIkitHeroImage extends \ContentElement
     {
         /**
          * Template.
@@ -42,7 +42,7 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
             // Add an image
             if ($this->addImage && '' !== $this->singleSRC) {
                 $objModel = \FilesModel::findByUuid($this->singleSRC);
-                if (null !== $objModel && is_file(TL_ROOT . '/' . $objModel->path)) {
+                if (null !== $objModel && is_file(\System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path)) {
                     $this->singleSRC = $objModel->path;
                     $this->addImageToTemplate($this->Template, $this->arrData, null, null, $objModel);
                 }

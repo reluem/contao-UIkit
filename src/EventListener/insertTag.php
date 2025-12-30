@@ -31,12 +31,12 @@ namespace Reluem\ContaoUIkitBundle\EventListener;
             if (isset($arrSplit[1]) && !empty($arrSplit[1])) {
                 $icon = $arrSplit[1];
                 $ratio = '1';
-                if (null !== $arrSplit[2]) {
-                    $ratio = $arrSplit[2] . ' ';
+                if (isset($arrSplit[2]) && null !== $arrSplit[2]) {
+                    $ratio = $arrSplit[2];
                 }
                 $classes = '';
-                if (null !== $arrSplit[3]) {
-                    $$classes = $arrSplit[3] . ' ';
+                if (isset($arrSplit[3]) && null !== $arrSplit[3]) {
+                    $classes = $arrSplit[3];
                 }
 
                 return '<span uk-icon="icon:' . $icon . '; ratio: ' . $ratio . '" class="' . $classes . '"></span>';
@@ -47,5 +47,7 @@ namespace Reluem\ContaoUIkitBundle\EventListener;
                     'contao' => new ContaoContext(__CLASS__ . '::' . __FUNCTION__, TL_GENERAL
                     ),
                 ]);
+
+            return false;
         }
     }

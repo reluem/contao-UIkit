@@ -16,7 +16,10 @@ class generatePageHook
 {
     public function assetDelivery(\PageModel $objPage, \LayoutModel $objLayout, \PageRegular $objPageRegular)
     {
-        if ('FE' === TL_MODE) {
+        $request = \System::getContainer()->get('request_stack')->getCurrentRequest();
+        $isFrontend = $request && \System::getContainer()->get('contao.routing.scope_matcher')->isFrontendRequest($request);
+
+        if ($isFrontend) {
             foreach ($GLOBALS['TL_JAVASCRIPT'] as $index => $javascript) {
                 $javascript = preg_replace('/\|.*/', '', $javascript);
                 // $GLOBALS['TL_HEAD'][] = '<link href="' . $javascript . '" rel="preload" as="script">';

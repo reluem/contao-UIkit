@@ -34,7 +34,7 @@ use Contao\Controller;
                         ],
                     ],
                     'floating' => [
-                            'label' => $GLOBALS['TL_LANG']['tl_module']['UIkit_navbarModules_floating'],
+                            'label' => &$GLOBALS['TL_LANG']['tl_module']['UIkit_navbarModules_floating'],
                             'inputType' => 'select',
                             'options' => ['left', 'right'],
                             'reference' => &$GLOBALS['TL_LANG']['MSC'],
@@ -42,7 +42,7 @@ use Contao\Controller;
                         ],
 
                     'cssClass' => [
-                        'label' => $GLOBALS['TL_LANG']['tl_module']['UIkit_navbarModules_cssClass'],
+                        'label' => &$GLOBALS['TL_LANG']['tl_module']['UIkit_navbarModules_cssClass'],
                         'inputType' => 'text',
                         'eval' => ['style' => 'width: 100px', 'rgxp' => 'txt'],
                     ],
