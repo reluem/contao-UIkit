@@ -34,7 +34,7 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
             $this->text = \StringUtil::toHtml5($this->text);
             // Add the static files URL to images
             if ($staticUrl = \System::getContainer()->get('contao.assets.files_context')->getStaticUrl()) {
-                $path = \Config::get('uploadPath') . '/';
+                $path = \System::getContainer()->getParameter('contao.upload_path') . '/';
                 $this->text = str_replace(' src="' . $path, ' src="' . $staticUrl . $path, $this->text);
             }
             $this->Template->text = \StringUtil::encodeEmail($this->text);
@@ -51,7 +51,7 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
             if (0 === strpos($this->url, 'mailto:')) {
                 $this->url = \StringUtil::encodeEmail($this->url);
             } else {
-                $this->url = ampersand($this->url);
+                $this->url = \StringUtil::ampersand($this->url);
             }
 
             if ($this->rel) {
@@ -78,7 +78,9 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
                 $this->Template->rel = ' rel="noreferrer noopener"';
             }
             // Unset the title attributes in the back end (see #6258)
-            if (TL_MODE === 'BE') {
+            $request = \System::getContainer()->get('request_stack')->getCurrentRequest();
+
+            if ($request && \System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
                 $this->Template->title = '';
                 $this->Template->linkTitle = '';
             }

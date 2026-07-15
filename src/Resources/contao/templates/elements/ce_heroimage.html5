@@ -20,7 +20,7 @@
             <?php endif; ?>
             
             <?php if ($this->addUIkit_button):
-                $this->UIkit_button = deserialize($this->UIkit_button, true);
+                $this->UIkit_button = \Contao\StringUtil::deserialize($this->UIkit_button, true);
                 $UIkit_button = array(); ?>
                 <div uk-grid
                      class="uk-grid-small uk-flex-inline uk-flex-middle uk-flex-center uk-grid">

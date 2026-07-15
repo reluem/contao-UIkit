@@ -41,7 +41,7 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
                 foreach ($config as $module) {
                     if ($module['floating'] === $floating) {
                         $id = $module['module'];
-                        if ('' !== $id && \array_key_exists($id, $models) && !$module['inactive']) {
+                        if ('' !== $id && \array_key_exists($id, $models) && empty($module['inactive'])) {
                             $parts[] = $this->generateModule($module, $models[$id]);
                         }
                     }
@@ -78,7 +78,7 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
         {
             $ids = [];
             foreach ($config as $index => $module) {
-                if ($module['inactive']) {
+                if (!empty($module['inactive'])) {
                     continue;
                 }
                 $ids[$index] = (int) $module['module'];

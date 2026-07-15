@@ -1,6 +1,6 @@
 <?php
 
-    declare(strict_types=1);
+declare(strict_types=1);
 
 /*
  * Contao UIkit Bundle
@@ -12,21 +12,34 @@
 
 namespace Reluem\ContaoUIkitBundle\EventListener;
 
+use Contao\CoreBundle\Routing\ScopeMatcher;
+use Symfony\Component\HttpFoundation\RequestStack;
+
 class generatePageHook
 {
-    public function assetDelivery(\PageModel $objPage, \LayoutModel $objLayout, \PageRegular $objPageRegular)
-    {
-        $request = \System::getContainer()->get('request_stack')->getCurrentRequest();
-        $isFrontend = $request && \System::getContainer()->get('contao.routing.scope_matcher')->isFrontendRequest($request);
+    private RequestStack $requestStack;
+    private ScopeMatcher $scopeMatcher;
 
-        if ($isFrontend) {
-            foreach ($GLOBALS['TL_JAVASCRIPT'] as $index => $javascript) {
-                $javascript = preg_replace('/\|.*/', '', $javascript);
-                // $GLOBALS['TL_HEAD'][] = '<link href="' . $javascript . '" rel="preload" as="script">';
-                header('Link: ' . $javascript . '; rel=preload; as=script', false);
-                $GLOBALS['TL_BODY'][] = '<script type="text/javascript" src="' . $javascript . '"></script>';
-                unset($GLOBALS['TL_JAVASCRIPT'][$index]);
-            }
+    public function __construct(RequestStack $requestStack, ScopeMatcher $scopeMatcher)
+    {
+        $this->requestStack = $requestStack;
+        $this->scopeMatcher = $scopeMatcher;
+    }
+
+    public function assetDelivery(\PageModel $objPage, \LayoutModel $objLayout, \PageRegular $objPageRegular): void
+    {
+        $request = $this->requestStack->getCurrentRequest();
+        $isFrontend = $request && $this->scopeMatcher->isFrontendRequest($request);
+
+        if (!$isFrontend) {
+            return;
+        }
+
+        foreach ($GLOBALS['TL_JAVASCRIPT'] as $index => $javascript) {
+            $javascript = preg_replace('/\|.*/', '', $javascript);
+            header('Link: ' . $javascript . '; rel=preload; as=script', false);
+            $GLOBALS['TL_BODY'][] = '<script type="text/javascript" src="' . $javascript . '"></script>';
+            unset($GLOBALS['TL_JAVASCRIPT'][$index]);
         }
     }
 }

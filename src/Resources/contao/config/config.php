@@ -54,25 +54,6 @@ $GLOBALS['TL_SUBCL']['contao-UIkit'] = [
 ];
 
 /*
-     * Hooks
-     */
-
-$GLOBALS['TL_HOOKS']['generatePage'][] = [
-    \Reluem\ContaoUIkitBundle\EventListener\generatePageHook::class,
-    'assetDelivery',
-];
-
-$GLOBALS['TL_HOOKS']['tabControlJS'][] = [
-    \Reluem\ContaoUIkitBundle\EventListener\TabControlHook::class,
-    'TabControlJS',
-];
-
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = [
-    \Reluem\ContaoUIkitBundle\EventListener\insertTag::class,
-    'iconInsertTag',
-];
-
-/*
      * JS Inclusion
      */
 

@@ -20,13 +20,13 @@
         }
     },
     "require": {
-        "php": "^7.0 || ^8.0",
-        "contao/core-bundle": "^4.10||^5.0",
-        "menatwork/contao-multicolumnwizard-bundle": "^3.4",
+        "php": "^7.4 || ^8.1",
+        "contao/core-bundle": "^4.13 || ^5.0",
+        "menatwork/contao-multicolumnwizard-bundle": "^3.4 || ^4.0",
         "npm-asset/uikit": "^3.5",
-        "codefog/contao-haste": "~4.20",
-        "oveleon/contao-component-style-manager": "~2.4",
-        "heimrichhannot/contao-subcolumns": "^4.0"
+        "codefog/contao-haste": "^4.20 || ^5.0",
+        "oveleon/contao-component-style-manager": "^2.4 || ^3.0",
+        "heimrichhannot/subcolumns": "^4.0"
     },
     "conflict": {
         "contao/core": "*",
