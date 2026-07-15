@@ -11,3 +11,8 @@
     $GLOBALS['TL_LANG']['CTE']['linkteaser'] = ['Link-Teaser', 'Eine Teaser-Box für Inhalte oder Downloads'];
     $GLOBALS['TL_LANG']['CTE']['heroimage'] = ['Hero-Image', 'Eine Box mit Hintergrundbild und optionalen Buttons'];
     $GLOBALS['TL_LANG']['CTE']['countdown'] = ['Countdown', 'Erzeugt ein Countdown-Element für ein bestimmtes Datum.'];
+    $GLOBALS['TL_LANG']['MSC']['sc_first'] = 'erste';
+    $GLOBALS['TL_LANG']['MSC']['sc_second'] = 'zweite';
+    $GLOBALS['TL_LANG']['MSC']['sc_third'] = 'dritte';
+    $GLOBALS['TL_LANG']['MSC']['sc_fourth'] = 'vierte';
+    $GLOBALS['TL_LANG']['MSC']['sc_fifth'] = 'fünfte';

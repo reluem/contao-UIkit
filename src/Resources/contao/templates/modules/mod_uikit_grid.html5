@@ -1,0 +1,13 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<div class="<?= $this->gridClass ?>" uk-grid>
+    <?php foreach ($this->columns as $column): ?>
+        <div class="<?= $column['class'] ?>">
+            <?= implode("\n", $column['modules']) ?>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<?php $this->endblock(); ?>

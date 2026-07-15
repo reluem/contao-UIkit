@@ -27,7 +27,6 @@ use Reluem\ContaoUIkitBundle\ContaoUIkitBundle;
                 BundleConfig::create(ContaoUIkitBundle::class)
                     ->setLoadAfter([
                         ContaoCoreBundle::class,
-                        'Subcolumns',
                     ]),
             ];
         }
