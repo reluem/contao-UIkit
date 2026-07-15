@@ -8,7 +8,6 @@
  * @link       http://github.com/reluem/contao-uikit
  */
 
-use Haste\Util\Debug;
 
 $GLOBALS['FE_MOD']['navigationMenu']['UIkit_navbar'] = Reluem\ContaoUIkitBundle\FrontendModule\UIkitNavbar::class;
 $GLOBALS['TL_CTE']['media']['heroimage'] = Reluem\ContaoUIkitBundle\ContentElement\UIkitHeroImage::class;
@@ -57,6 +56,9 @@ $GLOBALS['TL_SUBCL']['contao-UIkit'] = [
      * JS Inclusion
      */
 
-$GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('assets/uikit/dist/js/uikit.min.js');
-$GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('assets/uikit/dist/js/uikit-icons.min.js');
-$GLOBALS['TL_JAVASCRIPT'][] = Debug::uncompressedFile('files/theme/js/ajaxReload.min.js');
+// Haste 5 removed Haste\Util\Debug::uncompressedFile(); use the unminified files in debug mode instead
+$min = \Contao\System::getContainer()->getParameter('kernel.debug') ? '' : '.min';
+$GLOBALS['TL_JAVASCRIPT'][] = "assets/uikit/dist/js/uikit$min.js";
+$GLOBALS['TL_JAVASCRIPT'][] = "assets/uikit/dist/js/uikit-icons$min.js";
+$GLOBALS['TL_JAVASCRIPT'][] = "files/theme/js/ajaxReload$min.js";
+unset($min);
