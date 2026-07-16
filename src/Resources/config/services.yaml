@@ -8,12 +8,6 @@ services:
         tags:
             - { name: contao.hook, hook: generatePage, method: assetDelivery }
 
-    Reluem\ContaoUIkitBundle\EventListener\insertTag:
-        arguments:
-            $logger: '@monolog.logger.contao'
-        tags:
-            - { name: contao.hook, hook: replaceInsertTags, method: iconInsertTag }
-
     Reluem\ContaoUIkitBundle\EventListener\TabControlHook:
         tags:
             - { name: contao.hook, hook: tabControlJS, method: TabControlJS }
