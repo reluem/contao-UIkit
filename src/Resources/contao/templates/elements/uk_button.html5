@@ -1,8 +1,7 @@
 <a class="uk-button <?php echo $this->style ?: 'uk-button-default'; ?>"
-   title="<?= \Contao\StringUtil::specialchars($this->title) ?>"
+   <?php if ($this->title): ?>title="<?= \Contao\StringUtil::specialchars($this->title) ?>"<?php endif; ?>
    href="<?= $this->href; ?>" <?= $this->target ?><?= $this->rel ?>
    <?php if ($this->onclick): ?>onclick="<?= $this->onclick; ?>"<?php endif; ?>
-   <?php if ($this->tooltip): ?>uk-tooltip="title:<?= \Contao\StringUtil::specialchars($this->tooltip); ?>; pos: bottom" <?php endif; ?>
-   aria-pressed="false" role="button">
+   <?php if ($this->tooltip): ?>uk-tooltip="title:<?= \Contao\StringUtil::specialchars($this->tooltip); ?>; pos: bottom" <?php endif; ?>>
     <?= $this->link; ?>
 </a>

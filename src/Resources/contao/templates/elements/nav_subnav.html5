@@ -3,7 +3,7 @@
     <?php foreach ($this->items as $item): ?>
         <?php if ($item['isActive']): ?>
             <li class="<?= $item['class'] ?> uk-active"><a
-                        class="<?= $item['class'] ?>"<?php if (!empty($item['subitems'])) {
+                        class="<?= $item['class'] ?>" aria-current="page"<?php if (!empty($item['subitems'])) {
                     echo ' aria-haspopup="true"';
                 } ?>><?= $item['link'] ?></a><?= $item['subitems'] ?></li>
         <?php else: ?>
