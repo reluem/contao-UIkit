@@ -17,7 +17,7 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
      *
      * @author Leo Feyer <https://github.com/leofeyer>
      */
-    class UIkitcountdown extends \ContentElement
+    class UIkitcountdown extends \Contao\ContentElement
     {
         /**
          * Template.

@@ -17,7 +17,7 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
      *
      * @author Leo Feyer <https://github.com/leofeyer>
      */
-    class UIkitHeroImage extends \ContentElement
+    class UIkitHeroImage extends \Contao\ContentElement
     {
         /**
          * Template.
@@ -31,20 +31,30 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
          */
         protected function compile()
         {
-            $this->text = \StringUtil::toHtml5($this->text);
             // Add the static files URL to images
-            if ($staticUrl = \System::getContainer()->get('contao.assets.files_context')->getStaticUrl()) {
-                $path = \System::getContainer()->getParameter('contao.upload_path') . '/';
+            if ($staticUrl = \Contao\System::getContainer()->get('contao.assets.files_context')->getStaticUrl()) {
+                $path = \Contao\System::getContainer()->getParameter('contao.upload_path') . '/';
                 $this->text = str_replace(' src="' . $path, ' src="' . $staticUrl . $path, $this->text);
             }
-            $this->Template->text = \StringUtil::encodeEmail($this->text);
+            $this->Template->text = \Contao\StringUtil::encodeEmail($this->text);
             $this->Template->addImage = false;
             // Add an image
             if ($this->addImage && '' !== $this->singleSRC) {
-                $objModel = \FilesModel::findByUuid($this->singleSRC);
-                if (null !== $objModel && is_file(\System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path)) {
+                $objModel = \Contao\FilesModel::findByUuid($this->singleSRC);
+                if (null !== $objModel && is_file(\Contao\System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path)) {
                     $this->singleSRC = $objModel->path;
-                    $this->addImageToTemplate($this->Template, $this->arrData, null, null, $objModel);
+                    $figure = \Contao\System::getContainer()
+                        ->get('contao.image.studio')
+                        ->createFigureBuilder()
+                        ->from($objModel)
+                        ->setSize($this->size)
+                        ->setOverwriteMetadata($this->objModel->getOverwriteMetadata())
+                        ->enableLightbox((bool) $this->fullsize)
+                        ->buildIfResourceExists();
+                    if (null !== $figure) {
+                        $figure->applyLegacyTemplateData($this->Template, $this->imagemargin);
+                    }
+                    $this->Template->addImage = null !== $figure;
                 }
             }
         }

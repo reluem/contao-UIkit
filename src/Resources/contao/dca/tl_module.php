@@ -8,7 +8,10 @@
  * @link       http://github.com/reluem/contao-uikit
  */
 
+use Contao\Backend;
 use Contao\Controller;
+use Contao\Database;
+use Contao\Input;
 
     $GLOBALS['TL_DCA']['tl_module']['palettes']['UIkit_navbar'] = '{title_legend},name,type;{UIkit_navbar},UIkit_navbarModules;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 

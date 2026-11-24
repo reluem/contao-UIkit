@@ -26,7 +26,7 @@ class generatePageHook
         $this->scopeMatcher = $scopeMatcher;
     }
 
-    public function assetDelivery(\PageModel $objPage, \LayoutModel $objLayout, \PageRegular $objPageRegular): void
+    public function assetDelivery(\Contao\PageModel $objPage, \Contao\LayoutModel $objLayout, \Contao\PageRegular $objPageRegular): void
     {
         $request = $this->requestStack->getCurrentRequest();
         $isFrontend = $request && $this->scopeMatcher->isFrontendRequest($request);

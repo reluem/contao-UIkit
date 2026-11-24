@@ -17,7 +17,7 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
      *
      * @author Leo Feyer <https://github.com/leofeyer>
      */
-    class UIkitNavbar extends \Module
+    class UIkitNavbar extends \Contao\Module
     {
         /**
          * Template.
@@ -31,7 +31,7 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
          */
         protected function compile()
         {
-            $config = \StringUtil::deserialize($this->UIkit_navbarModules, true);
+            $config = \Contao\StringUtil::deserialize($this->UIkit_navbarModules, true);
             $modules = [];
             $models = $this->prefetchModules($config);
             // find unique values for floating and make array
@@ -56,9 +56,9 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
          * Generate a frontend module.
          *
          * @param array        $module module configuration
-         * @param \ModuleModel $model  module model
+         * @param \Contao\ModuleModel $model  module model
          */
-        protected function generateModule($module, \ModuleModel $model): array
+        protected function generateModule($module, \Contao\ModuleModel $model): array
         {
             return [
                 'type' => 'module',
@@ -99,7 +99,7 @@ namespace Reluem\ContaoUIkitBundle\FrontendModule;
             if ($ids) {
                 // prefetch modules, so only 1 query is required
                 $ids = implode(',', $ids);
-                $collection = \ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
+                $collection = \Contao\ModuleModel::findBy(['tl_module.id IN(' . $ids . ')'], []);
                 if ($collection) {
                     while ($collection->next()) {
                         $model = $collection->current();

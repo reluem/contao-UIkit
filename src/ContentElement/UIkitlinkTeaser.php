@@ -17,7 +17,7 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
      *
      * @author Leo Feyer <https://github.com/leofeyer>
      */
-    class UIkitlinkTeaser extends \ContentElement
+    class UIkitlinkTeaser extends \Contao\ContentElement
     {
         /**
          * Template.
@@ -31,27 +31,37 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
          */
         protected function compile()
         {
-            $this->text = \StringUtil::toHtml5($this->text);
             // Add the static files URL to images
-            if ($staticUrl = \System::getContainer()->get('contao.assets.files_context')->getStaticUrl()) {
-                $path = \System::getContainer()->getParameter('contao.upload_path') . '/';
+            if ($staticUrl = \Contao\System::getContainer()->get('contao.assets.files_context')->getStaticUrl()) {
+                $path = \Contao\System::getContainer()->getParameter('contao.upload_path') . '/';
                 $this->text = str_replace(' src="' . $path, ' src="' . $staticUrl . $path, $this->text);
             }
-            $this->Template->text = \StringUtil::encodeEmail($this->text);
+            $this->Template->text = \Contao\StringUtil::encodeEmail($this->text);
             $this->Template->addImage = false;
             // Add an image
             if ($this->addImage && '' !== $this->singleSRC) {
-                $objModel = \FilesModel::findByUuid($this->singleSRC);
-                if (null !== $objModel && is_file(\System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path)) {
+                $objModel = \Contao\FilesModel::findByUuid($this->singleSRC);
+                if (null !== $objModel && is_file(\Contao\System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path)) {
                     $this->singleSRC = $objModel->path;
-                    $this->addImageToTemplate($this->Template, $this->arrData, null, null, $objModel);
+                    $figure = \Contao\System::getContainer()
+                        ->get('contao.image.studio')
+                        ->createFigureBuilder()
+                        ->from($objModel)
+                        ->setSize($this->size)
+                        ->setOverwriteMetadata($this->objModel->getOverwriteMetadata())
+                        ->enableLightbox((bool) $this->fullsize)
+                        ->buildIfResourceExists();
+                    if (null !== $figure) {
+                        $figure->applyLegacyTemplateData($this->Template, $this->imagemargin);
+                    }
+                    $this->Template->addImage = null !== $figure;
                 }
             }
 
             if (0 === strpos($this->url, 'mailto:')) {
-                $this->url = \StringUtil::encodeEmail($this->url);
+                $this->url = \Contao\StringUtil::encodeEmail($this->url);
             } else {
-                $this->url = \StringUtil::ampersand($this->url);
+                $this->url = \Contao\StringUtil::ampersand($this->url);
             }
 
             if ($this->rel) {
@@ -69,7 +79,7 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
             $this->Template->target = '';
             $this->Template->rel = '';
             if ($this->titleText) {
-                $this->Template->linkTitle = \StringUtil::specialchars($this->titleText);
+                $this->Template->linkTitle = \Contao\StringUtil::specialchars($this->titleText);
             }
 
             // Override the link target
@@ -78,9 +88,9 @@ namespace Reluem\ContaoUIkitBundle\ContentElement;
                 $this->Template->rel = ' rel="noreferrer noopener"';
             }
             // Unset the title attributes in the back end (see #6258)
-            $request = \System::getContainer()->get('request_stack')->getCurrentRequest();
+            $request = \Contao\System::getContainer()->get('request_stack')->getCurrentRequest();
 
-            if ($request && \System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
+            if ($request && \Contao\System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
                 $this->Template->title = '';
                 $this->Template->linkTitle = '';
             }

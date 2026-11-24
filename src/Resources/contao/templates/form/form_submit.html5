@@ -3,8 +3,8 @@
 <?php $this->block('field'); ?>
 <?php if ($this->src): ?>
     <input type="image" src="<?= $this->src ?>" id="ctrl_<?= $this->id ?>" class="submit <?= $this->class; ?>"
-           title="<?= StringUtil::specialchars($this->slabel) ?>"
-           alt="<?= StringUtil::specialchars($this->slabel) ?>"<?= $this->getattributes() ?>>
+           title="<?= \Contao\StringUtil::specialchars($this->slabel) ?>"
+           alt="<?= \Contao\StringUtil::specialchars($this->slabel) ?>"<?= $this->getattributes() ?>>
 <?php else: ?>
     <button type="submit" id="ctrl_<?= $this->id ?>"
             class="submit uk-button uk-button-primary <?= $this->class; ?>"<?= $this->getattributes() ?>><?= $this->slabel ?></button>

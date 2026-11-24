@@ -3,6 +3,6 @@
            echo ' password';
        } ?><?php if ($this->class) {
            echo ' ' . $this->class;
-       } ?>" value="<?= specialchars($this->value) ?>"<?= $this->getAttributes() ?> type="search" placeholder="Suchen…"
+       } ?>" value="<?= \Contao\StringUtil::specialchars($this->value) ?>"<?= $this->getAttributes() ?> type="search" placeholder="Suchen…"
        autofocus>
 
