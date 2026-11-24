@@ -21,7 +21,7 @@
                         echo ' accesskey="' . $item['accesskey'] . '"';
                     } ?><?php if ($item['tabindex']) {
                         echo ' tabindex="' . $item['tabindex'] . '"';
-                    } ?><?php if ($item['nofollow']) {
+                    } ?><?php if (!empty($item['nofollow'])) {
                         echo ' rel="nofollow"';
                     } ?><?= $item['target'] ?><?php if (!empty($item['subitems'])) {
                         echo ' aria-haspopup="true"';
